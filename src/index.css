@@ -9,5 +9,6 @@
 }
 
 .container {
-  @apply  mx-auto sm:max-w-xl  md:max-w-full lg:max-w-screen-2xl;
+  @apply  mx-auto sm:max-w-xl  md:max-w-full lg:max-w-screen-lg md:px-10 xl:max-w-screen-2xl ;
+  /* @layer max-w-8xl ; */
 }

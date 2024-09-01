@@ -6,9 +6,9 @@ import NavSection from "./NavSection";
 
 export default function Header() {
   return (
-    <div className="">
-      <div className="shadow-lg pt-3 bg-gray-100 pb-8">
-      <div className="flex px-4 gap-4 justify-between py-1 shadow-2xl bg-white">
+    <nav>
+      <div className="shadow-lg pt-4 bg-gray-100 pb-8  text-sm">
+      <div className="lg:flex px-4 gap-4 justify-between  py-1 shadow-2xl bg-white">
         <div>
           <img
             className="h-10 w-26"
@@ -16,7 +16,7 @@ export default function Header() {
             alt=""
           />
         </div>
-        <div className="flex items-center border justify-between px-2 py-2 rounded-xl w-2/3 border-purple-500">
+        <div className="flex items-center border justify-between  rounded-xl w-2/4  border-purple-500 ">
           <input
             className=" focus:border-none focus:outline-none ps-3"
             type="text"
@@ -30,13 +30,13 @@ export default function Header() {
         </div>
         <div className="flex items-center">
           <div className="border border-gray-500 rounded-md">
-            <p className="font-bold text-purple-500 px-2 text-2xl ">Sell</p>
+            <p className="font-bold text-purple-500 px-2 py-1 ">Sell</p>
           </div>
         </div>
         <div className="flex gap-2">
-          <BiUser className="h-10 w-10 text-purple-500" />
+          <BiUser className="h-6 w-6 text-purple-500" />
           <div className="flex gap-2">
-            <h2 className="text-2xl">
+            <h2 >
               {" "}
               <span className="font-bold">Hellow </span>
               <span className="text-purple-500">Sing in</span> <span>|</span>
@@ -51,6 +51,6 @@ export default function Header() {
       <NavSection />
       <hr />
       </div>
-    </div>
+    </nav>
   );
 }

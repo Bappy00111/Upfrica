@@ -4,7 +4,7 @@ import CategoreProduct from "./CategoreProduct";
 
 export default function Categore() {
   return (
-    <div className="pt-32 shadow-2xl pb-4">
+    <div className="pt-32 shadow-xl  pb-4">
       <div className="container">
         <div className="flex gap-10 items-center ">
           <h1 className="text-3xl font-bold">Shop by Category</h1>
