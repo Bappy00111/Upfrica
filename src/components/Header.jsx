@@ -16,7 +16,7 @@ export default function Header() {
             alt=""
           />
         </div>
-        <div className="flex items-center border justify-between  rounded-xl w-2/4  border-purple-500 ">
+        <div className="flex items-center border justify-between  rounded-xl 2xl:w-3/5  border-purple-500 ">
           <input
             className=" focus:border-none focus:outline-none ps-3"
             type="text"
@@ -24,18 +24,18 @@ export default function Header() {
           />
           <IoMdSearch className="h-8 w-8 text-purple-500" />
         </div>
-        <div className="flex items-center gap-1 bg-gray-100 px-2">
+        <div className="flex items-center gap-3 bg-gray-100 px-2">
           <FaWhatsapp className="h-6 w-6 text-green-400" />
-          <p className="text-purple-500">Join the WhatsApp Group</p>
+          <p className="text-purple-500 tracking-wide text-sm">Join the WhatsApp Group</p>
         </div>
         <div className="flex items-center">
           <div className="border border-gray-500 rounded-md">
-            <p className="font-bold text-purple-500 px-2 py-1 ">Sell</p>
+            <p className="font-bold text-purple-500 px-4 py-1 tracking-wide text-xl">Sell</p>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-6 text-xl">
           <BiUser className="h-6 w-6 text-purple-500" />
-          <div className="flex gap-2">
+          <div className="flex gap-2 tracking-wide">
             <h2 >
               {" "}
               <span className="font-bold">Hellow </span>

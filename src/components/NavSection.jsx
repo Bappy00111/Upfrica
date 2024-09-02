@@ -15,7 +15,7 @@ export default function NavSection() {
     <div
       className="flex justify-center py-4 bg-white"
     >
-      <ul className="text-lg font-medium flex gap-6 tracking-wide text-gray-600">
+      <ul className="text-xl font-medium flex gap-6 tracking-wide text-gray-600">
         {datas.map((data) => (
           <Link>
             <li className="hover:text-purple-500" key={data.id}>

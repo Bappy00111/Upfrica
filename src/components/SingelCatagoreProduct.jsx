@@ -6,7 +6,7 @@ export default function SingelCatagoreProduct({data}) {
   return (
     <div>
         <img className='h-36 w-36 rounded-full' src={image} alt="" />
-        <p>{title}</p>
+        <p className='text-sm tracking-wide font-medium'>{title}</p>
     </div>
   )
 }
