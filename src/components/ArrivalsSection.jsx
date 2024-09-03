@@ -56,7 +56,7 @@ export default function ArrivalsSection() {
        
       ];
   return (
-    <div className='container py-20 mt-1 bg-white shadow px-2'>
+    <div className='container px-4 py-20 bg-white shadow-2xl'>
         <h1 className='text-3xl font-extrabold tracking-wide'>New Arrivals</h1>
         <div className='flex justify-between'>
             {

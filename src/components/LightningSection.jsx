@@ -49,12 +49,12 @@ export default function LightningSection() {
 
   //   console.log(data);
   return (
-    <div className="container px-4 py-20 bg-white shadow-2xl mt-2">
+    <div className="container px-4 py-20 bg-white shadow-2xl">
       <div className="flex gap-10 items-center ">
         <h1 className="text-3xl font-extrabold tracking-wide">Lightening Deals</h1>
         <IoIosArrowRoundForward className="h-14 w-14 pt-4 text-gray-700" />
       </div>
-      <div className="flex gap-5">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {
             datas.map(data => <SingelLightningSection key={data.id} data={data}></SingelLightningSection> )
         }

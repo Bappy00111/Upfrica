@@ -65,15 +65,13 @@ export default function CategoreProduct() {
     },
   ];
   return (
-    <div className="">
-      <div className="flex gap-3">
-        {datas.map((data) => (
-          <SingelCatagoreProduct
-            key={data.id}
-            data={data}
-          ></SingelCatagoreProduct>
-        ))}
-      </div>
+    <div className="flex gap-3">
+      {datas.map((data) => (
+        <SingelCatagoreProduct
+          key={data.id}
+          data={data}
+        ></SingelCatagoreProduct>
+      ))}
     </div>
   );
 }
