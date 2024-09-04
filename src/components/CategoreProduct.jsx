@@ -65,7 +65,7 @@ export default function CategoreProduct() {
     },
   ];
   return (
-    <div className="flex gap-3">
+    <div className="flex justify-between">
       {datas.map((data) => (
         <SingelCatagoreProduct
           key={data.id}
