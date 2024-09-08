@@ -113,109 +113,90 @@ const DetelsProduct = () => {
   ];
 
   return (
-    <div className="container space-y-6 w-2/3 ">
-      <div className="grid grid-cols-2 mt-5 gap-20">
-        <div className="col-span-1">
-          <img
-            className=" "
-            src="https://www.upfrica.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdzRJQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--14b21d649eedcfd40e47a050e6ac48702996e12b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2REdOdmJuWmxjblE2Q1hkbFluQT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--d4bbaf368280054512341b7f0b6f19697e0d7746/Screenshot%202024-08-31%20at%2013.44.26.png?scale.width=75"
-            alt=""
-          />
+    <div className="container space-y-6 md:w-full lg:w-3/4 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5">
+        {/* Image Section */}
+        <div className="relative">
+          <div className="sm:sticky sm:top-0 z-10">
+            <img
+              className="w-full h-auto object-cover"
+              src="https://www.upfrica.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdzRJQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--14b21d649eedcfd40e47a050e6ac48702996e12b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2REdOdmJuWmxjblE2Q1hkbFluQT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--d4bbaf368280054512341b7f0b6f19697e0d7746/Screenshot%202024-08-31%20at%2013.44.26.png?scale.width=75"
+              alt="Product"
+            />
+          </div>
         </div>
-        <div>
-          <div className="col-span-1 font-medium space-y-2 tracking-wide">
-            <p className="text-2xl ">
-              Dell Latitude 3380 Core I3 6th Generation 128gb
-            </p>
-            <p className="text-2xl ">Ssd 4gb Ram</p>
-            <button className="border py-2 px-4 hover:bg-purple-500 hover:text-white text-xl  text-purple-500 border-purple-500 rounded-xl">
-              Write a Review{" "}
-            </button>
-            <p className="flex items-center space-x-2">
-              <span className="font-extrabold">3785 sold </span>{" "}
-              <span className="text-purple-500">Visit the </span>{" "}
-              <span className="font-extrabold text-blue-700">Upfrica GH </span>
-              <span className="text-purple-500  flex items-center">
-                Shop{" "}
-                <span className=" flex items-center text-2xl">
-                  {" "}
-                  <span>
-                    <FaLocationPin className="mx-1 h-4 w-4 text-gray-500" />
-                  </span>{" "}
-                  accra, GH
-                </span>
-              </span>
-            </p>
+
+        {/* Text Section */}
+        <div className="space-y-4 p-4">
+          <div className="text-xl md:text-2xl font-bold">
+            Dell Latitude 3380 Core I3 6th Generation 128gb Ssd 4gb Ram
+          </div>
+          <button className="border py-1 md:py-2 px-2 md:px-4 hover:bg-purple-500 hover:text-white md:text-xl text-purple-500 border-purple-500 rounded-lg">
+            Write a Review
+          </button>
+          <p className="flex flex-wrap md:inline-block items-center space-x-2">
+            <span className="font-extrabold">3785 sold </span>
+            <span className="text-purple-500 ">Visit the </span>
+            <span className="font-extrabold text-blue-700">Upfrica GH </span>
+            <span className="flex items-center font-bold text-purple-500">
+              Shop <FaLocationPin className="mx-1 h-4 w-4 text-gray-400" />
+            </span>
+
+            <span className="sm:block text-purple-500 font-bold">
+              {" "}
+              accra, GH{" "}
+            </span>
+          </p>
+
+          <p className="text-base font-bold">
+            Price: <span className="text-xl">$159.77</span> each
+          </p>
+          <p className="text-gray-600 ">
+            RRP <span className="line-through">$166.17</span> You Save: $6.39
+            (3%)
+          </p>
+          <p className="text-red-600 font-bold">
+            <span className="px-1 bg-red-500 text-white">Sales</span> ends in 26
+            days 06:01
+          </p>
+          <p className="hidden lg:flex">
+            Collection: Click & Collect - Select option at checkout
+          </p>
+
+          <div className="px-2 py-1 bg-green-50 font-extrabold">
             <p>
-              Price <span className="text-2xl font-extrabold">$159.77</span>each
-            </p>
-            <p className="text-gray-600">
-              RRP{" "}
-              <span className="line-through text-2xl font-normal">
-                {" "}
-                $166.17
-              </span>{" "}
-              You Save: $6.39 (3%)
-            </p>
-            <p>
-              <span className="text-white bg-red-600 px-3  rounded">Sales</span>{" "}
-              <span className="text-red-600 text-base font-bold">
-                ends in 26 days 06:01
-              </span>
-            </p>
-            <p>
-              <span className="text-xl font-bold">Collection:</span> Click &
-              Collect - Select option at checkout
+              <span className="text-gray-400">Free Delivery for you</span>{" "}
+              <span>within Accra</span>
             </p>
           </div>
-          <div className="font-medium tracking-wide mt-10 space-y-6">
-            <p>
-              <span
-                className="font-extrabold text-xl p-2 bg-blue-50 rounded-lg
-          "
-              >
-                Free Delivery for you within Accra
-              </span>
-            </p>
-            <p>
-              <span className="border p-2 font-bold border-blue-200 rounded">
-                <span>Delivery date:</span>{" "}
-                <span className="text-purple-500">08 Sep - 11 Sep</span> if
-                ordered today
-              </span>
-            </p>
-            <p className="text-xl text-gray-500">
-              Get a $4.79 credit for late delivery
-            </p>
-            <button className="bg-[#f7c32e] w-2/3 py-1 rounded-2xl font-bold">
-              Add to baseket
-            </button>
-            <hr className="w-2/3" />
-          </div>
-          <div className="p-4 space-y-4">
+
+          {/* More text content as required */}
+
+          <div className=" space-y-4">
+            {/* Laptop Details Section */}
             {laptopDetails.map((details, index) => (
-              <div key={index}>
-                <div className="space-y-3">
-                  {Object.entries(details).map(([key, value]) => (
-                    <div key={key} className="flex">
-                      <div className="font-bold text-gray-700 w-1/3 text-right pr-2">
-                        {key}
-                      </div>
-                      <div className="text-gray-700">:</div>
-                      <div className="text-gray-900 w-2/3 pl-2">
-                        {Array.isArray(value)
-                          ? value.join(", ")
-                          : value.toString()}
-                      </div>
+              <div key={index} className="space-y-3">
+                {Object.entries(details).map(([key, value]) => (
+                  <div key={key} className="flex">
+                    <div className="font-bold text-gray-700 w-2/3 md:1/3 text-right pr-2">
+                      {key}
                     </div>
-                  ))}
-                </div>
+                    <div className="text-gray-700">:</div>
+                    <div className="text-gray-900 w-2/3 pl-2">
+                      {Array.isArray(value)
+                        ? value.join(", ")
+                        : value.toString()}
+                    </div>
+                  </div>
+                ))}
               </div>
             ))}
-            <hr className="w-2/3" />
           </div>
-          <div className="space-y-2">
-            <h2 className="text-2xl font-bold">Shop with confidence</h2>
+
+          <div className="space-y-2 text-base">
+            <h2 className="text-xl md:text-2xl font-bold">
+              Shop with confidence
+            </h2>
             <button className="flex items-center gap-2 text-green-400">
               <span>
                 <IoIosArrowDropdown className="h-7 w-7" />
@@ -225,7 +206,7 @@ const DetelsProduct = () => {
                 <MdOutlineKeyboardArrowRight className="h-7 w-7" />
               </span>
             </button>
-            <div className="w-2/3 grid grid-cols-2 gap-4 text-base font-medium tracking-wide">
+            <div className="w-2/3 grid lg:grid-cols-2 gap-4 text-base font-medium tracking-wide text-center">
               <p className="flex gap-2">
                 <span>
                   <IoMdCheckmark className="h-6 w-6 font-bold" />
@@ -254,25 +235,28 @@ const DetelsProduct = () => {
           </div>
         </div>
       </div>
+
       {/* Dell Latitude section  */}
-      <div className="grid grid-cols-2 gap-20">
+      <div className="grid md:grid-cols-2 gap-5 lg:gap-20 ">
         <div>
-          <div className="h-[500px]">
+          <div className="md:h-[500px] space-y-2">
             <div className="space-y-4 border rounded-xl p-2">
               <div className="flex gap-5">
                 <span>
                   <GoPerson className="h-16 w-16 border rounded-full text-gray-500" />
                 </span>
                 <div>
-                  <h2 className="text-2xl font-bold tracking-wide">Upfrica</h2>
-                  <p className="">
+                  <h2 className="text-xl md:text-2xl font-bold tracking-wide">
+                    Upfrica
+                  </h2>
+                  <p className="text-base">
                     <span className="mr-5 text-gray-400">5 followers</span>{" "}
                     <span className="text-green-500">417 Items</span>
                   </p>
                 </div>
               </div>
               <div className="flex gap-2">
-                <div className="text-xl font-bold border rounded-3xl w-1/2">
+                <div className="text-base lg:text-xl font-bold border rounded-3xl w-1/2">
                   <button className="flex items-center gap-4  mx-auto py-2">
                     <span>
                       <FaHeart />
@@ -280,7 +264,7 @@ const DetelsProduct = () => {
                     <span>Follow</span>
                   </button>
                 </div>
-                <div className="text-xl font-bold border rounded-3xl w-1/2">
+                <div className="text-base lg:text-xl font-bold border rounded-3xl w-1/2">
                   <button className="flex flex-col mx-auto py-2">
                     <span>shop all items</span>
                   </button>
@@ -294,20 +278,20 @@ const DetelsProduct = () => {
               "
                     />
                   </span>
-                  <p className="text-white text-xl tracking-wide font-bold">
+                  <p className="text-white text-base lg:text-xl tracking-wide font-bold">
                     Click to view number
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-4 py-4">
             <h2 className="text-xl font-medium tracking-wide">
               Customer Review
             </h2>
             <hr />
             <div className="flex justify-center bg-[#f5f5f6] py-6 rounded-2xl">
-              <div className="text-xl leading-8 ">
+              <div className="text-base md:text-xl leading-8 text-center p-4">
                 <b>Be the first to review this product</b>
                 <br />
                 <span>
@@ -319,17 +303,17 @@ const DetelsProduct = () => {
             </div>
           </div>
         </div>
-        <div className="space-y-6">
-          <h2 className="text-2xl font-medium tracking-wide">
+        <div className="space-y-6 py-4">
+          <h2 className="text-xl md:text-2xl font-medium tracking-wide">
             Dell Latitude 3380 Cor.. in Ghana Best Sale Price: Upfrica
-            <hr />
           </h2>
-          <p className="text-lg leading-8">
+          <hr />
+          <p className="text-base md:text-xl leading-8">
             Shop Dell Latitude 3380 Core I3 6th Generation .. at everyday low
             prices. Order online today for fast delivery or collect from the
             seller in accra, GH
           </p>
-          <p className="text-xl leading-8 font-medium">
+          <p className="text-base md:text-xl leading-8 ">
             This is a Slim 6th Gen. neat Dell latitude 3380 core i3 with
             excellent battery health The laptop comes with SSD 128GB RAM, 4GB
             charger, HDMI, Bluetooth, camera, WiFi connection, USB Ports 13.3"
@@ -343,12 +327,12 @@ const DetelsProduct = () => {
       </div>
       {/* items related products  */}
       <div>
-        <h2 className="text-2xl font-medium text-[#555555]">
+        <h2 className="text-xl md:text-2xl font-medium text-[#555555]">
           Items related to this Dell Latitude 3380 Core I3 6th Generation 128gb
           Ssd 4gb Ram and their Price in Ghana See more{" "}
           <small className="text-blue-500">see more</small>
         </h2>
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 py-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 py-4">
           {datas.map((data, index) => (
             <Details key={index} data={data}></Details>
           ))}

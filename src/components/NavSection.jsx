@@ -13,7 +13,7 @@ export default function NavSection() {
   ];
   return (
     <div
-      className="flex justify-center py-4 bg-white"
+      className=" hidden lg:flex  justify-center py-4 bg-white"
     >
       <ul className="text-xl font-medium flex gap-6 tracking-wide text-gray-600">
         {datas.map((data) => (

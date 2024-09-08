@@ -45,16 +45,25 @@ export default function LightningSection() {
       newPrice: 1000,
       oldPrice: 1500,
     },
+    {
+      id: 6,
+      title: "Potato slicer mac...",
+      image: "https://www.upfrica.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBanJrIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c96293b4fb9e80c000ad73d368c07b96948a42b2/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFMMEFXa0M5QUU2REdOdmJuWmxjblE2Q1hkbFluQT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--29660478de3e7db46108b4d681e7f0be8b9f3f86/ddsss.jpeg",
+      productCode: "P105",
+      newPrice: 1000,
+      oldPrice: 1500,
+    },
+  
   ];
 
   //   console.log(data);
   return (
     <div className="container px-4 py-20 bg-white shadow-2xl">
       <div className="flex gap-10 items-center ">
-        <h1 className="text-3xl font-extrabold tracking-wide">Lightening Deals</h1>
+        <h1 className="text-xl md:text-3xl font-extrabold tracking-wide">Lightening Deals</h1>
         <IoIosArrowRoundForward className="h-14 w-14 pt-4 text-gray-700" />
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {
             datas.map(data => <SingelLightningSection key={data.id} data={data}></SingelLightningSection> )
         }

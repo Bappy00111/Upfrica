@@ -1,5 +1,6 @@
 import React from "react";
 import SingelCatagoreProduct from "./SingelCatagoreProduct";
+import Slider from "react-slick";
 
 export default function CategoreProduct() {
   const datas = [
@@ -64,14 +65,53 @@ export default function CategoreProduct() {
         "https://www.upfrica.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdnB1IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--60b9f08d0c8b8897598578d128bf6d5f64aa4b36/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKZDJWaWNBWTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFJc0FXa0NMQUU2REdOdmJuWmxjblE2Q1hkbFluQT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--cfd187e6ae7698456a1e9d0d803437d89557e4a7/c-m-b.webp",
     },
   ];
+
+  // Slider settings for smaller devices
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1, // Default to 1 slide
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 640, // For small devices (sm)
+        settings: {
+          slidesToShow: 3, // Show 3 slides on sm devices
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 768, // For medium devices (md)
+        settings: {
+          slidesToShow: 6, // Show 6 slides on md devices
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 1024, // For large devices (lg and above)
+        settings: "unslick", // Disable slick on large devices, will show full width
+      },
+    ],
+  };
+
   return (
-    <div className="flex justify-between">
-      {datas.map((data) => (
-        <SingelCatagoreProduct
-          key={data.id}
-          data={data}
-        ></SingelCatagoreProduct>
-      ))}
+    <div className="w-full">
+      <div className="hidden lg:flex justify-between">
+        {datas.map((data) => (
+          <SingelCatagoreProduct key={data.id} data={data} />
+        ))}
+      </div>
+
+      {/* Slider for smaller devices */}
+      <div className="lg:hidden">
+        <Slider {...settings}>
+          {datas.map((data) => (
+            <SingelCatagoreProduct key={data.id} data={data} />
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 }

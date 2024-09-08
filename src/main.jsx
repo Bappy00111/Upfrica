@@ -1,27 +1,42 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout/Layout.jsx";
 import Home from "./components/Home.jsx";
 import DetelsProduct from "./components/DetelsProduct.jsx";
+import CatagoreDetels from "./components/CatagoreDetels.jsx";
+import SingUp from "./components/SingUp.jsx";
+import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
-    children:[
+    element: <Layout />,
+    children: [
       {
-        path:'/',
-        element:<Home/>
+        path: "/",
+        element: <Home />,
       },
       {
-        path:'/detels',
-        element:<DetelsProduct/>
+        path: "/detels",
+        element: <DetelsProduct />,
       },
-    ]
+      {
+        path: "/catagoreDetels",
+        element: <CatagoreDetels />,
+      },
+     
+    ],
+  },
+  {
+    path: "/singUp",
+    element: <SingUp />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 

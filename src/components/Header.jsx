@@ -4,6 +4,7 @@ import { BiUser } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoMdMenu, IoMdSearch } from "react-icons/io";
 import NavSection from "./NavSection";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -85,10 +86,10 @@ export default function Header() {
         {/* User Section */}
         <div className="lg:w-1/6 flex items-center justify-end gap-4 text-xl">
           <BiUser className="h-6 w-6 text-purple-500" />
-          <div className="flex gap-2 tracking-wide items-center">
+          <div className="flex gap-2 tracking-wide items-center cursor-pointer">
             <h2>
               <span className="font-bold">Hello </span>
-              <span className="text-purple-500">Sign in |</span> 
+              <Link to='/login'><span className="text-purple-500">Sign in |</span> </Link>
             </h2>
             <button className="px-4 py-1 bg-purple-500 text-white rounded h-10">
               Join

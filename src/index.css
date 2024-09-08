@@ -10,9 +10,7 @@
 }
 
 .container {
-  @apply  md:mx-auto sm:max-w-xl  md:max-w-full lg:max-w-screen-lg   ;
+  @apply  mx-auto sm:max-w-xl  md:max-w-full lg:max-w-screen-xl 2xl:max-w-full 2xl:px-40  ;
  
-  @screen 2xl {
-    max-width: 2000px; 
-  }
+ 
 }

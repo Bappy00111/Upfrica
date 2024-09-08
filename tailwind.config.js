@@ -2,14 +2,7 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      screens: {
-        "2xl": "1536px",
-      },
-      maxWidth: {
-        "2xl": "2000px",
-      },
-    },
+    extend: {},
   },
   plugins: [require("daisyui")],
 };
