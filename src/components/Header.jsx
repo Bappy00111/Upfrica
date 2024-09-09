@@ -12,7 +12,7 @@ export default function Header() {
     
     <div className="lg:flex lg:gap-4 lg:justify-between py-1 shadow-2xl bg-white px-2">
       {/* Small & Medium Devices Layout */}
-      <div className="lg:hidden flex flex-col w-full">
+      <div className="xl:hidden flex flex-col w-full">
         <div className="flex justify-between items-center w-full">
           <img
             className="h-8 w-24"
@@ -48,7 +48,7 @@ export default function Header() {
       </div>
 
       {/* Large Devices Layout */}
-      <div className="hidden lg:flex lg:w-full lg:gap-4 items-center">
+      <div className="hidden xl:flex lg:w-full lg:gap-4 items-center">
         {/* Profile Image */}
         <div className="lg:w-1/6 flex justify-start">
           <img
