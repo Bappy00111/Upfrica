@@ -13,7 +13,7 @@ export default function SingelCatagoreProduct({ data }) {
       <div>
         <Link to='/catagoreDetels'>
           <img
-            className="h-24 lg:h-36 w-24 lg:w-36 rounded-full"
+            className="h-24 2xl:h-36 w-24 2xl:w-36 rounded-full"
             src={image}
             alt=""
           />

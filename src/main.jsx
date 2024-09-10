@@ -9,6 +9,7 @@ import DetelsProduct from "./components/DetelsProduct.jsx";
 import CatagoreDetels from "./components/CatagoreDetels.jsx";
 import SingUp from "./components/SingUp.jsx";
 import Login from "./components/Login.jsx";
+import CartProduct from "./components/CartProduct.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,12 +21,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/detels",
+        path: "/detelsProduct",
         element: <DetelsProduct />,
       },
       {
         path: "/catagoreDetels",
         element: <CatagoreDetels />,
+      },
+      {
+        path: "/cartProdct",
+        element: <CartProduct />,
       },
      
     ],
@@ -38,6 +43,7 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+
 ]);
 
 createRoot(document.getElementById("root")).render(

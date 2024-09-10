@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className="bg-white shadow-2xl">
     
-    <div className="lg:flex lg:gap-4 lg:justify-between py-1 shadow-2xl bg-white px-2">
+    <div className="xl:flex lg:gap-4 lg:justify-between py-1 shadow-2xl bg-white px-2">
       {/* Small & Medium Devices Layout */}
       <div className="xl:hidden flex flex-col w-full">
         <div className="flex justify-between items-center w-full">
@@ -59,7 +59,7 @@ export default function Header() {
         </div>
 
         {/* Search Section */}
-        <div className="lg:w-3/4 flex items-center border justify-between rounded-xl py-3 px-2">
+        <div className="lg:w-2/4 flex items-center border justify-between rounded-xl py-3 px-2">
           <input
             className="w-full focus:outline-none ps-3"
             type="text"
@@ -69,7 +69,7 @@ export default function Header() {
         </div>
 
         {/* WhatsApp Section */}
-        <div className="lg:w-1/6 flex items-center justify-center bg-gray-100 p-4">
+        <div className="xl:w-2/6 flex items-center justify-center bg-gray-100 p-4">
           <FaWhatsapp className="h-6 w-6 text-green-400" />
           <p className="text-purple-500 tracking-wide text-base ">
             Join the WhatsApp Group
@@ -77,14 +77,14 @@ export default function Header() {
         </div>
 
         {/* Sell Button */}
-        <div className="lg:w-1/6 flex items-center justify-center">
+        <div className=" flex items-center justify-center">
           <div className="border border-gray-500 rounded-md">
             <p className="font-bold text-purple-500 px-4 py-1 tracking-wide text-xl">Sell</p>
           </div>
         </div>
 
         {/* User Section */}
-        <div className="lg:w-1/6 flex items-center justify-end gap-4 text-xl">
+        <div className="xl:w-2/6 flex items-center justify-end gap-4 text-xl">
           <BiUser className="h-6 w-6 text-purple-500" />
           <div className="flex gap-2 tracking-wide items-center cursor-pointer">
             <h2>

@@ -9,6 +9,7 @@ import {
 import { MdLocalPhone, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
 import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const DetelsProduct = () => {
   const laptopDetails = [
@@ -113,7 +114,7 @@ const DetelsProduct = () => {
   ];
 
   return (
-    <div className="container space-y-6 md:w-full lg:w-3/4 px-4">
+    <div className="container space-y-6 md:w-full lg:w-3/4 xl:w-4/5 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5">
         {/* Image Section */}
         <div className="relative">
@@ -134,7 +135,7 @@ const DetelsProduct = () => {
           <button className="border py-1 md:py-2 px-2 md:px-4 hover:bg-purple-500 hover:text-white md:text-xl text-purple-500 border-purple-500 rounded-lg">
             Write a Review
           </button>
-          <p className="flex flex-wrap md:inline-block items-center space-x-2">
+          <p className="flex space-x-2">
             <span className="font-extrabold">3785 sold </span>
             <span className="text-purple-500 ">Visit the </span>
             <span className="font-extrabold text-blue-700">Upfrica GH </span>
@@ -159,16 +160,21 @@ const DetelsProduct = () => {
             <span className="px-1 bg-red-500 text-white">Sales</span> ends in 26
             days 06:01
           </p>
-          <p className="hidden lg:flex">
+          <p className="hidden lg:flex text-xl">
             Collection: Click & Collect - Select option at checkout
           </p>
 
-          <div className="px-2 py-1 bg-green-50 font-extrabold">
+          <div className="px-2 py-1 text-xl bg-green-50 font-extrabold xl:w-3/5">
             <p>
               <span className="text-gray-400">Free Delivery for you</span>{" "}
               <span>within Accra</span>
             </p>
           </div>
+          <div className="space-y-2">
+            <p className="text-base font-bold -tracking-wide border p-2 xl:w-3/5 rounded-md border-blue-400">Delivery date:  <span className="text-blue-500"> 14 Sep - 17 Sep  </span> if ordered today</p>
+            <p className="text-base xl:text-xl text-[#747589]">Get a $4.79 credit for late delivery</p>
+          </div>
+          <Link to='/cartProdct'><button className="bg-[#F7C32E] w-full p-2 rounded-3xl text-base font-bold">Add to basket</button></Link>
 
           {/* More text content as required */}
 

@@ -1,8 +1,8 @@
 import React from "react";
-import ArrivalsSingelProducts from "./ArrivalsSingelProducts";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ArrivalsSingelProducts from "./ArrivalsSingelProducts";
 
 export default function ArrivalsSection() {
   const products = [
@@ -68,6 +68,7 @@ export default function ArrivalsSection() {
   ];
 
   const settings = {
+    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1, // Default to 1 slide
@@ -84,12 +85,26 @@ export default function ArrivalsSection() {
       {
         breakpoint: 768, // For medium devices (md)
         settings: {
-          slidesToShow: 4, // Show 6 slides on md devices
-          slidesToScroll: 4,
+          slidesToShow: 3, // Show 6 slides on md devices
+          slidesToScroll: 2,
         },
       },
       {
-        breakpoint: 1024, // For large devices (lg and above)
+        breakpoint: 1024, // For medium devices (md)
+        settings: {
+          slidesToShow: 5, // Show 6 slides on md devices
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 1280, // For medium devices (md)
+        settings: {
+          slidesToShow: 7, // Show 6 slides on md devices
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 1536, // For large devices (lg and above)
         settings: "unslick", // Disable slick on large devices, will show full width
       },
     ],
@@ -97,26 +112,27 @@ export default function ArrivalsSection() {
   return (
     <div className="container px-4 py-20 bg-white shadow-2xl">
       <h1 className="text-3xl font-extrabold tracking-wide">New Arrivals</h1>
-      {/* <div className="w-full"> */}
-      {/* Flex layout for large devices */}
-      <div className="hidden lg:flex justify-between">
-        {products.map((data) => (
-          <ArrivalsSingelProducts key={data.id} product={data} />
+      
+      <div className="w-full">
+      <div className="hidden 2xl:flex justify-between">
+        {products.map((product) => (
+          <ArrivalsSingelProducts key={product.id} product={product} />
         ))}
       </div>
 
-      {/* Slider for small and medium devices */}
-      <div className="lg:hidden">
+      {/* Slider for smaller devices */}
+      <div className="2xl:hidden">
         <Slider {...settings}>
-          {products.map((data) => (
-            <div key={data.id} className="px-2">
-              {" "}
-              {/* Add horizontal padding */}
-              <ArrivalsSingelProducts product={data} />
-            </div>
+          {products.map((product) => (
+             <div className="p-2"> {/* Add padding here */}
+          <ArrivalsSingelProducts key={product.id} product={product} />
+        </div>
           ))}
         </Slider>
       </div>
+    </div>
+
+      
     </div>
     // </div>
   );

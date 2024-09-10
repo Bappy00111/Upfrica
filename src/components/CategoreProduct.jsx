@@ -90,7 +90,21 @@ export default function CategoreProduct() {
         },
       },
       {
-        breakpoint: 1024, // For large devices (lg and above)
+        breakpoint: 1024, // For medium devices (md)
+        settings: {
+          slidesToShow: 7, // Show 6 slides on md devices
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 1280, // For medium devices (md)
+        settings: {
+          slidesToShow: 9, // Show 6 slides on md devices
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 1536, // For large devices (lg and above)
         settings: "unslick", // Disable slick on large devices, will show full width
       },
     ],
@@ -98,14 +112,14 @@ export default function CategoreProduct() {
 
   return (
     <div className="w-full">
-      <div className="hidden lg:flex justify-between">
+      <div className="hidden 2xl:flex justify-between">
         {datas.map((data) => (
           <SingelCatagoreProduct key={data.id} data={data} />
         ))}
       </div>
 
       {/* Slider for smaller devices */}
-      <div className="lg:hidden">
+      <div className="2xl:hidden">
         <Slider {...settings}>
           {datas.map((data) => (
             <SingelCatagoreProduct key={data.id} data={data} />
