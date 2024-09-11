@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const CartProduct = () => {
   const [count, setCount] = useState(0);
@@ -96,6 +97,18 @@ const CartProduct = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex justify-between">
+          <Link to="/checkout">
+            <button className="text-base font-bold bg-[#F7C32E] px-4 py-1 rounded-3xl">
+              checkout
+            </button>
+          </Link>
+          <Link to="/catagoreDetels">
+            <button className="text-base font-bold border bg-gray-100 px-4 py-1 rounded-3xl">
+              Continue shopping
+            </button>
+          </Link>
         </div>
       </div>
     </div>
