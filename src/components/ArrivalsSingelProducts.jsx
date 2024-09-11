@@ -7,7 +7,7 @@ export default function ArrivalsSingelProducts({product}) {
     const {id,image,newPrice,oldPrice} = product;
   return (
     <div className='border rounded-xl mt-4 overflow-hidden'>
-        <img className='h-20 lg:h-40 w-20 lg:w-40 bg-center bg-cover hover:scale-110 hover:translate-y-[-4px] transition-transform duration-300 mx-auto' src={image} alt="" />
+        <img className='h-36 w-36  bg-center bg-cover hover:scale-110 hover:translate-y-[-4px] transition-transform duration-300 mx-auto' src={image} alt="" />
         <hr />
         <div className="flex justify-between items-center p-1">
           <div className="flex gap-2">

@@ -63,7 +63,7 @@ export default function LightningSection() {
         <h1 className="text-xl md:text-3xl font-extrabold tracking-wide">Lightening Deals</h1>
         <IoIosArrowRoundForward className="h-14 w-14 pt-4 text-gray-700" />
       </div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  2xl:grid-cols-6 gap-4">
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-6 gap-4">
         {
             datas.map(data => <SingelLightningSection key={data.id} data={data}></SingelLightningSection> )
         }

@@ -99,8 +99,15 @@ export default function CategoreProduct() {
       {
         breakpoint: 1280, // For medium devices (md)
         settings: {
-          slidesToShow: 9, // Show 6 slides on md devices
+          slidesToShow: 8, // Show 6 slides on md devices
           slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 1536, // For medium devices (md)
+        settings: {
+          slidesToShow: 9, // Show 6 slides on md devices
+          slidesToScroll: 3,
         },
       },
       {
@@ -112,7 +119,7 @@ export default function CategoreProduct() {
 
   return (
     <div className="w-full">
-      <div className="hidden 2xl:flex justify-between">
+      <div className="hidden xl:flex justify-between">
         {datas.map((data) => (
           <SingelCatagoreProduct key={data.id} data={data} />
         ))}

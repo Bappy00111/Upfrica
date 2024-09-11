@@ -10,7 +10,7 @@ export default function SingelLightningSection({ data }) {
         {/* Image with Hover Effect */}
         <Link to="/detelsProduct">
           <img
-            className="w-full h-60 2xl:h-80 bg-center rounded-t-lg hover:scale-110 hover:-translate-y-2 transition-transform duration-500 ease-in-out"
+            className="w-full h-60 xl:h-80 bg-center rounded-t-lg hover:scale-110 hover:-translate-y-2 transition-transform duration-500 ease-in-out"
             src={image}
             alt={title}
           />

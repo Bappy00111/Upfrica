@@ -104,6 +104,13 @@ export default function ArrivalsSection() {
         },
       },
       {
+        breakpoint: 1536, // For medium devices (md)
+        settings: {
+          slidesToShow: 8, // Show 6 slides on md devices
+          slidesToScroll: 3,
+        },
+      },
+      {
         breakpoint: 1536, // For large devices (lg and above)
         settings: "unslick", // Disable slick on large devices, will show full width
       },
