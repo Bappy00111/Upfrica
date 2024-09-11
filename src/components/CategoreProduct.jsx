@@ -110,10 +110,7 @@ export default function CategoreProduct() {
           slidesToScroll: 3,
         },
       },
-      {
-        breakpoint: 1536, // For large devices (lg and above)
-        settings: "unslick", // Disable slick on large devices, will show full width
-      },
+     
     ],
   };
 
@@ -126,7 +123,7 @@ export default function CategoreProduct() {
       </div>
 
       {/* Slider for smaller devices */}
-      <div className="2xl:hidden">
+      <div className="xl:hidden">
         <Slider {...settings}>
           {datas.map((data) => (
             <SingelCatagoreProduct key={data.id} data={data} />
