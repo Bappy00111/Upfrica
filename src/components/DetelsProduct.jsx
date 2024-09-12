@@ -114,11 +114,11 @@ const DetelsProduct = () => {
   ];
 
   return (
-    <div className="container space-y-6 md:w-full lg:w-3/4 xl:w-4/5 px-4">
+    <div className="container space-y-6 md:w-full lg:w-3/4 xl:w-4/5 px-2">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5">
         {/* Image Section */}
         <div className="relative">
-          <div className="sm:sticky sm:top-0 z-10">
+          <div className="sm:sticky sm:top-0 z-10 ">
             <img
               className="w-full h-auto object-cover"
               src="https://www.upfrica.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdzRJQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--14b21d649eedcfd40e47a050e6ac48702996e12b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2REdOdmJuWmxjblE2Q1hkbFluQT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--d4bbaf368280054512341b7f0b6f19697e0d7746/Screenshot%202024-08-31%20at%2013.44.26.png?scale.width=75"
@@ -128,7 +128,7 @@ const DetelsProduct = () => {
         </div>
 
         {/* Text Section */}
-        <div className="space-y-4 p-4">
+        <div className="space-y-4 ">
           <div className="text-xl md:text-2xl font-bold">
             Dell Latitude 3380 Core I3 6th Generation 128gb Ssd 4gb Ram
           </div>
@@ -136,17 +136,19 @@ const DetelsProduct = () => {
             Write a Review
           </button>
           <p className="flex space-x-2">
-            <span className="font-extrabold">3785 sold </span>
-            <span className="text-purple-500 ">Visit the </span>
-            <span className="font-extrabold text-blue-700">Upfrica GH </span>
-            <span className="flex items-center font-bold text-purple-500">
-              Shop <FaLocationPin className="mx-1 h-4 w-4 text-gray-400" />
-            </span>
+            <span className="font-extrabold">3785 sold by</span>
+            <span className="text-purple-500"> Esther Mensah  </span>
+            {/* <span className="font-extrabold text-blue-700">Upfrica GH </span> */}
+            {/* <span className="font-bold text-purple-500">Shop</span> */}
 
-            <span className="sm:block text-purple-500 font-bold">
-              {" "}
-              accra, GH{" "}
-            </span>
+            <p className="flex  flex-row items-center">
+              <span>
+                <FaLocationPin className="mx-1 h-4 w-4 text-gray-400" />
+              </span>
+              <span className="text-purple-500 font-bold sm:ml-1">
+                accra, GH
+              </span>
+            </p>
           </p>
 
           <p className="text-base font-bold">
@@ -171,10 +173,20 @@ const DetelsProduct = () => {
             </p>
           </div>
           <div className="space-y-2">
-            <p className="text-base font-bold -tracking-wide border p-2 xl:w-3/5 rounded-md border-blue-400">Delivery date:  <span className="text-blue-500"> 14 Sep - 17 Sep  </span> if ordered today</p>
-            <p className="text-base xl:text-xl text-[#747589]">Get a $4.79 credit for late delivery</p>
+            <p className="text-base font-bold -tracking-wide border p-2 xl:w-3/5 rounded-md border-blue-400">
+              Delivery date:{" "}
+              <span className="text-blue-500"> 14 Sep - 17 Sep </span> if
+              ordered today
+            </p>
+            <p className="text-base xl:text-xl text-[#747589]">
+              Get a $4.79 credit for late delivery
+            </p>
           </div>
-          <Link to='/cartProdct'><button className="bg-[#F7C32E] w-full p-2 rounded-3xl text-base font-bold">Add to basket</button></Link>
+          <Link to="/cartProdct">
+            <button className="bg-[#F7C32E] w-full p-2 rounded-3xl text-base font-bold">
+              Add to basket
+            </button>
+          </Link>
 
           {/* More text content as required */}
 

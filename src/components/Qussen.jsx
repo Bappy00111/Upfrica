@@ -16,12 +16,12 @@ const QuestionItem = ({ question, answer }) => {
         className="flex justify-between items-center cursor-pointer"
         onClick={toggleOpen}
       >
-        <span className="text-xl  font-bold">{question}</span>
+        <span className="text-base  font-bold">{question}</span>
         <span>
           {isOpen ? (
-            <IoIosArrowUp className="text-3xl" />
+            <IoIosArrowUp className="text-2xl" />
           ) : (
-            <IoIosArrowDown className="text-3xl" />
+            <IoIosArrowDown className="text-2xl" />
           )}
         </span>
       </div>
@@ -30,7 +30,7 @@ const QuestionItem = ({ question, answer }) => {
           isOpen ? "max-h-96" : "max-h-0"
         }`}
       >
-        <div className="mt-4 text-xl">{answer}</div>
+        <div className="mt-4 text-base">{answer}</div>
       </div>
       
     </div>

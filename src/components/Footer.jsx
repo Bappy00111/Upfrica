@@ -8,9 +8,9 @@ export default function Footer() {
       <footer className="container mx-auto p-10 text-white text-xl tracking-wide">
         <div className="grid sm:grid-cols-1 sm:gap-10 md:grid-cols-1 lg:grid-cols-5 lg:gap-10">
           {/* First Section */}
-          <nav className="space-y-4 sm:col-span-1 md:col-span-1 lg:col-span-1">
+          <nav className="space-y-4 sm:col-span-1 md:col-span-1 lg:col-span-1 text-base">
             <h6 className="text-2xl font-bold">Upfrica - BD</h6>
-            <p className="text-base">
+            <p className="">
               Online Shopping in Ghana, Nigeria, UK for quality items at
               discounted prices - Sell, deliver, process payments and grow your
               business - Buy & sell African products, electronics, machines &
@@ -27,7 +27,7 @@ export default function Footer() {
             <p className="py-10 leading-8">
               Upfrica - African Marketplace BD. All rights reserved.
             </p>
-            <p className="text-2xl font-bold">Payment & Security</p>
+            <p className="text-xl font-bold">Payment & Security</p>
             <div className="flex gap-2">
               <img
                 className="h-10 w-14 rounded"
@@ -53,8 +53,8 @@ export default function Footer() {
           </nav>
 
           {/* Remaining Sections */}
-          <div className="sm:grid grid-cols-2 sm:gap-4 md:grid-cols-4 lg:col-span-4 grid gap-10 sm:pt-2">
-            <nav className="space-y-4">
+          <div className="sm:grid grid-cols-2 sm:gap-4 md:grid-cols-4 lg:col-span-4 grid gap-10 sm:pt-2 text-base">
+            <nav className="space-y-4 ">
               <h6 className="text-2xl font-bold tracking-wide">Page</h6>
               <p>Deals</p>
               <p>Listhings</p>

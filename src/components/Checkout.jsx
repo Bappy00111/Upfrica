@@ -300,7 +300,7 @@ const Checkout = () => {
               </div>
             </div>
             <div className="space-y-4 hover:bg-green-50 p-4 rounded-md">
-              <label className="flex gap-5 text-xl font-bold">
+              <label className="flex gap-5 text-base font-bold">
                 <input
                   type="radio"
                   name="radio-10"
@@ -315,7 +315,7 @@ const Checkout = () => {
                   </p>
                 </div>
               </label>
-              <label className="flex gap-5 text-xl font-bold">
+              <label className="flex gap-5 text-base font-bold">
                 <input
                   type="radio"
                   name="radio-10"
