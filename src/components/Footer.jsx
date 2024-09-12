@@ -24,36 +24,12 @@ export default function Footer() {
               <MdOutlineEmail className="h-6 w-6" />
               <span>email us</span>
             </p>
-            <p className="py-10 leading-8">
-              Upfrica - African Marketplace BD. All rights reserved.
-            </p>
-            <p className="text-xl font-bold">Payment & Security</p>
-            <div className="flex gap-2">
-              <img
-                className="h-10 w-14 rounded"
-                src="https://d26ukeum83vx3b.cloudfront.net/assets/momo-f05ddc4de74168553b74a880e7f960a1a9854e3110b5696256500f4d8f3ee1fa.jpeg"
-                alt="Payment Method 1"
-              />
-              <img
-                className="h-10 w-14 rounded"
-                src="https://d26ukeum83vx3b.cloudfront.net/assets/visa-d303de42ebf4fbc0e8fd0e3b7f92f203822cdbbc123bc27214283acdd1fdafa7.svg"
-                alt="Payment Method 2"
-              />
-              <img
-                className="h-10 w-14 rounded"
-                src="https://d26ukeum83vx3b.cloudfront.net/assets/mastercard-23b4badc9b2f83763ca268da7a89378d3a9732066d23f7683ecf24b5bde0f06f.svg"
-                alt="Payment Method 3"
-              />
-              <img
-                className="h-10 w-14 rounded"
-                src="https://d26ukeum83vx3b.cloudfront.net/assets/expresscard-95d23c429de33f9f60a52390d788eae22f1f625648b4e587e87449c8304bd357.svg"
-                alt="Payment Method 4"
-              />
-            </div>
+           
+           
           </nav>
 
           {/* Remaining Sections */}
-          <div className="sm:grid grid-cols-2 sm:gap-4 md:grid-cols-4 lg:col-span-4 grid gap-10 sm:pt-2 text-base">
+          <div className="sm:grid grid-cols-2 sm:gap-4 md:grid-cols-4 lg:col-span-4 grid gap-10 sm:pt-2 text-base py-4 ">
             <nav className="space-y-4 ">
               <h6 className="text-2xl font-bold tracking-wide">Page</h6>
               <p>Deals</p>
@@ -85,6 +61,34 @@ export default function Footer() {
               <p>Dashboard</p>
             </nav>
           </div>
+          <div className=" my-10 md:my-4">
+          <p className="py-10 leading-8">
+              Upfrica - African Marketplace BD. All rights reserved.
+            </p>
+            <p className="text-xl font-bold">Payment & Security</p>
+              <div className="flex gap-2">
+              <img
+                className="h-10 w-14 rounded"
+                src="https://d26ukeum83vx3b.cloudfront.net/assets/momo-f05ddc4de74168553b74a880e7f960a1a9854e3110b5696256500f4d8f3ee1fa.jpeg"
+                alt="Payment Method 1"
+              />
+              <img
+                className="h-10 w-14 rounded"
+                src="https://d26ukeum83vx3b.cloudfront.net/assets/visa-d303de42ebf4fbc0e8fd0e3b7f92f203822cdbbc123bc27214283acdd1fdafa7.svg"
+                alt="Payment Method 2"
+              />
+              <img
+                className="h-10 w-14 rounded"
+                src="https://d26ukeum83vx3b.cloudfront.net/assets/mastercard-23b4badc9b2f83763ca268da7a89378d3a9732066d23f7683ecf24b5bde0f06f.svg"
+                alt="Payment Method 3"
+              />
+              <img
+                className="h-10 w-14 rounded"
+                src="https://d26ukeum83vx3b.cloudfront.net/assets/expresscard-95d23c429de33f9f60a52390d788eae22f1f625648b4e587e87449c8304bd357.svg"
+                alt="Payment Method 4"
+              />
+              </div>
+            </div>
         </div>
       </footer>
     </div>
