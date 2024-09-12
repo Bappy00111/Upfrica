@@ -59,7 +59,7 @@ export default function Header() {
         </div>
 
         {/* Search Section */}
-        <div className="lg:w-2/4 flex items-center border justify-between rounded-xl py-3 px-2">
+        <div className="lg:w-2/4 flex items-center border justify-between rounded-xl py-2 px-2">
           <input
             className="w-full focus:outline-none ps-3"
             type="text"
@@ -69,7 +69,7 @@ export default function Header() {
         </div>
 
         {/* WhatsApp Section */}
-        <div className="xl:w-2/6 flex items-center justify-center bg-gray-100 p-2">
+        <div className="xl:w-2/6 flex items-center justify-center bg-gray-100 p-2 rounded-md">
           <FaWhatsapp className="h-6 w-6 text-green-400" />
           <p className="text-purple-500 tracking-wide text-base ">
             Join the WhatsApp Group
@@ -78,8 +78,8 @@ export default function Header() {
 
         {/* Sell Button */}
         <div className=" flex items-center justify-center">
-          <div className="border border-gray-500 rounded-md">
-            <p className="font-bold text-purple-500 px-4 py-1 tracking-wide text-xl">Sell</p>
+          <div className="border border-gray-500 rounded-md ">
+            <p className="font-bold text-purple-500 px-4 tracking-wide text-xl py-2">Sell</p>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export default function Header() {
               <span className="font-bold">Hello </span>
               <Link to='/login'><span className="text-purple-500">Sign in |</span> </Link>
             </h2>
-            <button className="px-4 py-1 bg-purple-500 text-white rounded ">
+            <button className="p-2  bg-purple-500 text-white rounded text-xl font-bold">
               Join
             </button>
           </div>

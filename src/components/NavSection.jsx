@@ -17,8 +17,8 @@ export default function NavSection() {
     >
       <ul className="text-base font-bold  flex gap-6 tracking-wide text-gray-600 ">
         {datas.map((data) => (
-          <Link>
-            <li className="hover:text-purple-500" key={data.id}>
+          <Link key={data.id}>
+            <li className="hover:text-purple-500" >
               {data.title}
             </li>
           </Link>

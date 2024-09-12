@@ -128,8 +128,8 @@ export default function ArrivalsSection() {
       <div className="xl:hidden">
         <Slider {...settings}>
           {products.map((product) => (
-             <div className="p-2"> 
-          <ArrivalsSingelProducts key={product.id} product={product} />
+             <div key={product.id} className="p-2"> 
+          <ArrivalsSingelProducts  product={product} />
         </div>
           ))}
         </Slider>

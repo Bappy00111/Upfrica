@@ -3,7 +3,7 @@ import { FaCartPlus } from 'react-icons/fa';
 
 
 export default function ArrivalsSingelProducts({product}) {
-    console.log(product)
+    // console.log(product)
     const {id,image,newPrice,oldPrice} = product;
   return (
     <div className='border rounded-xl mt-4 overflow-hidden'>
