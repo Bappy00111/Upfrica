@@ -69,7 +69,7 @@ export default function Header() {
         </div>
 
         {/* WhatsApp Section */}
-        <div className="xl:w-2/6 flex items-center justify-center bg-gray-100 p-4">
+        <div className="xl:w-2/6 flex items-center justify-center bg-gray-100 p-2">
           <FaWhatsapp className="h-6 w-6 text-green-400" />
           <p className="text-purple-500 tracking-wide text-base ">
             Join the WhatsApp Group
@@ -84,14 +84,14 @@ export default function Header() {
         </div>
 
         {/* User Section */}
-        <div className="xl:w-2/6 flex items-center justify-end gap-4 text-xl">
+        <div className="xl:w-2/6 flex items-center justify-end gap-4 text-base">
           <BiUser className="h-6 w-6 text-purple-500" />
           <div className="flex gap-2 tracking-wide items-center cursor-pointer">
             <h2>
               <span className="font-bold">Hello </span>
               <Link to='/login'><span className="text-purple-500">Sign in |</span> </Link>
             </h2>
-            <button className="px-4 py-1 bg-purple-500 text-white rounded h-10">
+            <button className="px-4 py-1 bg-purple-500 text-white rounded ">
               Join
             </button>
           </div>

@@ -110,28 +110,25 @@ export default function ArrivalsSection() {
           slidesToScroll: 3,
         },
       },
-      {
-        breakpoint: 1536, // For large devices (lg and above)
-        settings: "unslick", // Disable slick on large devices, will show full width
-      },
+    
     ],
   };
   return (
-    <div className="container px-4 py-20 bg-white shadow-2xl">
-      <h1 className="text-3xl font-extrabold tracking-wide">New Arrivals</h1>
+    <div className="container  py-10 bg-white shadow-2xl px-2">
+      <h1 className="text-2xl font-extrabold tracking-wide">New Arrivals</h1>
       
-      <div className="w-full">
-      <div className="hidden 2xl:flex justify-between">
+      <div className="w-full overflow-hidden">
+      <div className="hidden xl:flex justify-between">
         {products.map((product) => (
           <ArrivalsSingelProducts key={product.id} product={product} />
         ))}
       </div>
 
       {/* Slider for smaller devices */}
-      <div className="2xl:hidden">
+      <div className="xl:hidden">
         <Slider {...settings}>
           {products.map((product) => (
-             <div className="p-2"> {/* Add padding here */}
+             <div className="p-2"> 
           <ArrivalsSingelProducts key={product.id} product={product} />
         </div>
           ))}

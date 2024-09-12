@@ -115,7 +115,7 @@ export default function CategoreProduct() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       <div className="hidden xl:flex justify-between">
         {datas.map((data) => (
           <SingelCatagoreProduct key={data.id} data={data} />
