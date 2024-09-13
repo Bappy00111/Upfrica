@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaLocationPin } from "react-icons/fa6";
 import Details from "./Details";
 import {
@@ -8,10 +8,16 @@ import {
 } from "react-icons/io";
 import { MdLocalPhone, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
-import { FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight, FaHeart } from "react-icons/fa";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 const DetelsProduct = () => {
+  const location = useLocation();
+  // console.log()
+  const { id, product_images, title } = location.state || {};
+  console.log(id);
+  // const {id} = useParams()
+  // console.log('userId',id)
   const laptopDetails = [
     {
       Condition: "Renewed",
@@ -113,40 +119,100 @@ const DetelsProduct = () => {
     },
   ];
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? product_images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === product_images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
-    <div className="container space-y-6 md:w-full lg:w-3/4 xl:w-4/5 px-4">
+    <div className="container space-y-6 md:w-full lg:w-3/4 xl:w-4/5 px-2">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5">
         {/* Image Section */}
-        <div className="relative">
-          <div className="sm:sticky sm:top-0 z-10">
-            <img
-              className="w-full h-auto object-cover"
-              src="https://www.upfrica.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdzRJQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--14b21d649eedcfd40e47a050e6ac48702996e12b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2REdOdmJuWmxjblE2Q1hkbFluQT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--d4bbaf368280054512341b7f0b6f19697e0d7746/Screenshot%202024-08-31%20at%2013.44.26.png?scale.width=75"
-              alt="Product"
-            />
+        {/* <div >
+          <div className="">
+            {product_images &&
+              product_images.length > 0 &&
+              product_images !== null && (
+                <img
+                  src={product_images[0]} // Sudhu prothom image ta show hobe
+                  alt="Product"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              )}
+          </div>
+        </div> */}
+
+        <div className="relative max-w-4xl mx-auto">
+          {/* Slides */}
+          {product_images && product_images.length > 0 && (
+            <div className="overflow-hidden">
+              <img
+                src={product_images[currentImageIndex]} // Current image display
+                alt={`Product ${currentImageIndex + 1}`}
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+          )}
+
+          {/* Prev/Next Arrows */}
+          <div className="absolute inset-0 flex items-center justify-between px-4">
+            <button
+              className="bg-teal-100 text-teal-500 hover:text-orange-500 font-bold hover:shadow-lg rounded-full p-2"
+              onClick={handlePrev}
+            >
+              <FaArrowLeft className="text-2xl" /> {/* Left arrow icon */}
+            </button>
+            <button
+              className="bg-teal-100 text-teal-500 hover:text-orange-500 font-bold hover:shadow-lg rounded-full p-2"
+              onClick={handleNext}
+            >
+              <FaArrowRight className="text-2xl" /> {/* Right arrow icon */}
+            </button>
+          </div>
+
+          {/* Dots for Navigation */}
+          <div className="absolute w-full flex items-center justify-center px-4">
+            {product_images.map((_, index) => (
+              <button
+                key={index}
+                className={`flex-1 w-4 h-2 mt-4 mx-2 mb-0 rounded-full overflow-hidden transition-colors duration-200 ease-out hover:bg-teal-600 hover:shadow-lg ${
+                  currentImageIndex === index ? "bg-orange-600" : "bg-teal-300"
+                }`}
+                onClick={() => setCurrentImageIndex(index)}
+              ></button>
+            ))}
           </div>
         </div>
 
         {/* Text Section */}
-        <div className="space-y-4 p-4">
-          <div className="text-xl md:text-2xl font-bold">
-            Dell Latitude 3380 Core I3 6th Generation 128gb Ssd 4gb Ram
-          </div>
+        <div className="space-y-4 ">
+          <div className="text-xl md:text-2xl font-bold">{title}</div>
           <button className="border py-1 md:py-2 px-2 md:px-4 hover:bg-purple-500 hover:text-white md:text-xl text-purple-500 border-purple-500 rounded-lg">
             Write a Review
           </button>
           <p className="flex space-x-2">
-            <span className="font-extrabold">3785 sold </span>
-            <span className="text-purple-500 ">Visit the </span>
-            <span className="font-extrabold text-blue-700">Upfrica GH </span>
-            <span className="flex items-center font-bold text-purple-500">
-              Shop <FaLocationPin className="mx-1 h-4 w-4 text-gray-400" />
-            </span>
+            <span className="font-extrabold">3785 sold by</span>
+            <span className="text-purple-500"> Esther Mensah </span>
+            {/* <span className="font-extrabold text-blue-700">Upfrica GH </span> */}
+            {/* <span className="font-bold text-purple-500">Shop</span> */}
 
-            <span className="sm:block text-purple-500 font-bold">
-              {" "}
-              accra, GH{" "}
-            </span>
+            <p className="flex  flex-row items-center">
+              <span>
+                <FaLocationPin className="mx-1 h-4 w-4 text-gray-400" />
+              </span>
+              <span className="text-purple-500 font-bold sm:ml-1">
+                accra, GH
+              </span>
+            </p>
           </p>
 
           <p className="text-base font-bold">
@@ -171,10 +237,20 @@ const DetelsProduct = () => {
             </p>
           </div>
           <div className="space-y-2">
-            <p className="text-base font-bold -tracking-wide border p-2 xl:w-3/5 rounded-md border-blue-400">Delivery date:  <span className="text-blue-500"> 14 Sep - 17 Sep  </span> if ordered today</p>
-            <p className="text-base xl:text-xl text-[#747589]">Get a $4.79 credit for late delivery</p>
+            <p className="text-base font-bold -tracking-wide border p-2 xl:w-3/5 rounded-md border-blue-400">
+              Delivery date:{" "}
+              <span className="text-blue-500"> 14 Sep - 17 Sep </span> if
+              ordered today
+            </p>
+            <p className="text-base xl:text-xl text-[#747589]">
+              Get a $4.79 credit for late delivery
+            </p>
           </div>
-          <Link to='/cartProdct'><button className="bg-[#F7C32E] w-full p-2 rounded-3xl text-base font-bold">Add to basket</button></Link>
+          <Link to="/cartProdct">
+            <button className="bg-[#F7C32E] w-full p-2 rounded-3xl text-base font-bold">
+              Add to basket
+            </button>
+          </Link>
 
           {/* More text content as required */}
 
