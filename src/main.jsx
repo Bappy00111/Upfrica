@@ -11,6 +11,7 @@ import SingUp from "./components/SingUp.jsx";
 import Login from "./components/Login.jsx";
 import CartProduct from "./components/CartProduct.jsx";
 import Checkout from './components/Checkout';
+import AddNewProducts from "./components/AddNewProducts.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "/cartProdct",
         element: <CartProduct />,
       },
+      {
+        path: "/addNewProducts",
+        element: <AddNewProducts/>,
+      },
      
     ],
   },
@@ -48,6 +53,7 @@ const router = createBrowserRouter([
     path: "/checkout",
     element: <Checkout/>,
   },
+
 
 ]);
 

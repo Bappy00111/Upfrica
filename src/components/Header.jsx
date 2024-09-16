@@ -12,7 +12,7 @@ export default function Header() {
         {/* Small & Medium Devices Layout */}
         <div className="xl:hidden flex flex-col w-full">
           <div className="flex justify-between items-center w-full">
-            <Link to='/'>
+            <Link to="/">
               {" "}
               <img
                 className="h-8 w-24"
@@ -20,9 +20,12 @@ export default function Header() {
                 alt="Profile"
               />
             </Link>
-            <button className="px-4 py-1 bg-purple-500 text-white rounded-md">
-              Sell
-            </button>
+            <Link>
+              {" "}
+              <button className="px-2 py-1 bg-purple-500 text-white rounded-md">
+                Sell
+              </button>
+            </Link>
             <div className="flex gap-4">
               <BiUser className="h-6 w-6 text-purple-500" />
               <IoMdMenu className="h-6 w-6 text-purple-500" />
@@ -60,9 +63,9 @@ export default function Header() {
           </div>
 
           {/* Search Section */}
-          <div className="lg:w-2/4 flex items-center border justify-between rounded-xl py-2 px-2">
+          <div className="lg:w-2/4 flex items-center border rounded-xl py-1 px-2 group">
             <input
-              className="w-full focus:outline-none ps-3"
+              className="w-full border-none focus:outline-none ps-3"
               type="text"
               placeholder="Search Upfrica BD"
             />
@@ -80,9 +83,12 @@ export default function Header() {
           {/* Sell Button */}
           <div className=" flex items-center justify-center">
             <div className="border border-gray-500 rounded-md ">
-              <p className="font-bold text-purple-500 px-4 tracking-wide text-xl py-2">
-                Sell
-              </p>
+              <Link to="/addNewProducts">
+                {" "}
+                <p className="font-bold text-purple-500 px-4 tracking-wide text-xl py-1">
+                  Sell
+                </p>
+              </Link>
             </div>
           </div>
 
@@ -96,9 +102,11 @@ export default function Header() {
                   <span className="text-purple-500">Sign in |</span>{" "}
                 </Link>
               </h2>
-              <button className="p-2  bg-purple-500 text-white rounded text-xl font-bold">
-                Join
-              </button>
+              <Link>
+                <button className="px-4 py-1  bg-purple-500 text-white rounded text-xl font-bold">
+                  Join
+                </button>
+              </Link>
             </div>
           </div>
         </div>
