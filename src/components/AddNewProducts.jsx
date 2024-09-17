@@ -6,6 +6,7 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import ImageUploading from "react-images-uploading";
 import { Editor } from "@tinymce/tinymce-react";
+import { useFormik } from "formik";
 
 const AddNewProducts = () => {
   // ফর্ম টগল করার জন্য state
@@ -38,9 +39,18 @@ const AddNewProducts = () => {
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
+
+  const formik = useFormik({
+    initialValues:{
+      supplierLink:""
+    },
+     onSubmit: (values) => {
+      console.log(values); // Handle form submission here
+    }
+  })
   return (
     <div className="flex justify-center pt-20 bg-slate-50">
-      <form className="w-full md:w-3/5 2xl:w-1/2 py-5">
+      <form onSubmit={formik.handleSubmit} className="w-full md:w-3/5 2xl:w-1/2 py-5">
         <div className="text-center space-y-4 py-5">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
             Add New Listing
@@ -237,8 +247,12 @@ const AddNewProducts = () => {
                       Supplier Link or GPS*
                     </label>
                     <input
+                      id="supplierLink"
+                      name="supplierLink"
                       type="text"
                       placeholder="Link"
+                      onChange={formik.handleChange}
+                      value={formik.values.supplierLink}
                       className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
@@ -433,7 +447,7 @@ const AddNewProducts = () => {
             <Editor
               apiKey="wlfjcowajns1o44b16c3vyk0lmxnctw5pehcbmo9070i2f4x"
               onInit={(_evt, editor) => (editorRef.current = editor)}
-              initialValue="<p>This is the initial content of the editor.</p>"
+              initialValue="<p></p>"
               init={{
                 height: 200,
                 menubar: false,
@@ -778,7 +792,7 @@ const AddNewProducts = () => {
           </div>
         </div>
         <div className="flex justify-between text-xl font-bold p-4">
-          <button className="bg-purple-500 text-white px-4 py-2 rounded-md">
+          <button type="submit" className="bg-purple-500 text-white px-4 py-2 rounded-md">
             Save and continue
           </button>
           <button>Cancel</button>
