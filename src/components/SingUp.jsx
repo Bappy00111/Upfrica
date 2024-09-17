@@ -2,11 +2,60 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useFormik } from "formik";
 
 const SingUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      first_name: "",
+      last_name: "",
+      username: "",
+      password: "",
+      password_confirmation: "",
+      account_type: "Seller (Individual)",
+      phone_number: "000000",
+      city: "dhaka",
+      country: "BD",
+      terms_of_service: true,
+    },
+    onSubmit: async (values) => {
+      // Form submit korle data pawa jabe
+      console.log("Form data", values);
+      try {
+        const response = await fetch(
+          "https://upfrica-staging.herokuapp.com/api/v1/users.json",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({user:values}), // Convert form data to JSON string
+          }
+        );
+
+        const data = await response.text(); // Parse JSON response from server
+        console.log(data);
+        localStorage.setItem('user', JSON.stringify(data));
+        if (response.ok) {
+          console.log(data);
+          
+          // If request is successful
+          // setMessage('Signup successful!');
+        } else {
+          // If request fails, display error message
+          // setMessage(data.message || 'Signup failed. Please try again.');
+        }
+      } catch (error) {
+        // Handle network or other errors
+        // setMessage('Error: ' + error.message);
+      }
+    },
+  });
   return (
-    <div className=" max-w-screen-2xl  mx-auto lg:p-10 p-4 flex justify-center items-center h-screen">
+    <div className=" max-w-screen-2xl  mx-auto lg:p-10 p-4 flex justify-center items-center ">
       <div className="bg-white  container grid lg:grid-cols-2   lg:flex-col  py-10 lg:px-10 shadow-xl border rounded-md ">
         {/* Image Column */}
         <div className="col-span-1 order-2 lg:order-1  p-2 lg:p-4">
@@ -44,120 +93,170 @@ const SingUp = () => {
               Enter email address
             </p>
 
-            {/* Email Input */}
-            <div className="space-y-2">
-              <label className="block   text-left text-xl font-medium text-[#85878A]">
-                Enter email address
-              </label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-            {/* Name Inpute  */}
-            <div className="space-y-2">
-              <label className="block   text-left text-xl font-medium text-[#85878A]">
-                Your name
-              </label>
-              <div className="relative w-full">
-                <div className="flex border border-gray-200 rounded-md">
-                  {/* First Name Input */}
-                  <div className="flex-1">
-                    <label className="block text-left text-xl font-medium text-[#85878A] sr-only">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="First Name"
-                      className="w-full px-4 py-2 border-none focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-md"
-                    />
-                  </div>
+            <form onSubmit={formik.handleSubmit} className="space-y-4">
+              {/* Email Input */}
+              <div className="space-y-2">
+                <label className="block   text-left text-xl font-medium text-[#85878A]">
+                  Enter email address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+              </div>
+              {/* Name Inpute  */}
+              <div className="space-y-2">
+                <label className="block   text-left text-xl font-medium text-[#85878A]">
+                  Your name
+                </label>
+                <div className="relative w-full">
+                  <div className="flex border border-gray-200 rounded-md">
+                    {/* First Name Input */}
+                    <div className="flex-1">
+                      <label className="block text-left text-xl font-medium text-[#85878A] sr-only">
+                        First Name
+                      </label>
+                      <input
+                        id="fastName"
+                        name="first_name"
+                        type="text"
+                        onChange={formik.handleChange}
+                        value={formik.values.first_name}
+                        placeholder="First Name"
+                        className="w-full px-4 py-2 border-none focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-l-md"
+                      />
+                    </div>
 
-                  {/* Vertical Border */}
-                  <div className="border-l border-gray-300"></div>
+                    {/* Vertical Border */}
+                    <div className="border-l border-gray-300"></div>
 
-                  {/* Last Name Input */}
-                  <div className="flex-1">
-                    <label className="block text-left text-xl font-medium text-[#85878A] sr-only">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Last Name"
-                      className="w-full px-4 py-2 border-none focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-md"
-                    />
+                    {/* Last Name Input */}
+                    <div className="flex-1">
+                      <label className="block text-left text-xl font-medium text-[#85878A] sr-only">
+                        Last Name
+                      </label>
+                      <input
+                        id="lastName"
+                        name="last_name"
+                        type="text"
+                        onChange={formik.handleChange}
+                        value={formik.values.last_name}
+                        placeholder="Last Name"
+                        className="w-full px-4 py-2 border-none focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-r-md"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* display Name  */}
-            <div className="space-y-2">
-              <label className="block   text-left text-xl font-medium text-[#85878A]">
-                Username/Display name
-              </label>
-              <input
-                type="email"
-                placeholder="This will show to public"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-
-            {/* Password Input */}
-            <div className="relative w-full space-y-2">
-              <label className="block text-left text-xl font-medium text-[#85878A]">
-                Enter password
-              </label>
-              <div className="relative">
+              {/* display Name  */}
+              <div className="space-y-2">
+                <label className="block   text-left text-xl font-medium text-[#85878A]">
+                  Username/Display name
+                </label>
                 <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 pr-12"
+                  id="userName"
+                  name="username"
+                  type="text"
+                  onChange={formik.handleChange}
+                  value={formik.values.username}
+                  placeholder="This will show to public"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 cursor-pointer"
-                >
-                  {showPassword ? (
-                    <FaEye className="text-xl" />
-                  ) : (
-                    <FaEyeSlash className="text-xl" />
-                  )}
-                </button>
               </div>
-            </div>
 
-            {/* Remember me & Forgot password */}
+              {/* Password Input */}
+              <div className="relative w-full space-y-2">
+                <label className="block text-left text-xl font-medium text-[#85878A]">
+                  Enter password
+                </label>
+                <div className="relative">
+                  <input
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                    placeholder="Enter your password"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 pr-12"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 cursor-pointer"
+                  >
+                    {showPassword ? (
+                      <FaEye className="text-xl" />
+                    ) : (
+                      <FaEyeSlash className="text-xl" />
+                    )}
+                  </button>
+                </div>
+              </div>
+              <div className="relative w-full space-y-2">
+                <label className="block text-left text-xl font-medium text-[#85878A]">
+                  Enter password
+                </label>
+                <div className="relative">
+                  <input
+                    id="password"
+                    name="password_confirmation"
+                    type={showPassword ? "text" : "password"}
+                    onChange={formik.handleChange}
+                    value={formik.values.password_confirmation}
+                    placeholder="Enter your password"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 pr-12"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 cursor-pointer"
+                  >
+                    {showPassword ? (
+                      <FaEye className="text-xl" />
+                    ) : (
+                      <FaEyeSlash className="text-xl" />
+                    )}
+                  </button>
+                </div>
+              </div>
+              {/* Remember me & Forgot password */}
 
-            <div>
-              <label className="ml-2 block text-xl text-[#85878A]">
-                (6 characters minimum)
-              </label>
-            </div>
+              <div>
+                <label className="ml-2 block text-xl text-[#85878A]">
+                  (6 characters minimum)
+                </label>
+              </div>
 
-            <div className="flex ">
-              <input
-                type="checkbox"
-                className="h-4 w-4 text-[#A435F0] border-gray-300 rounded focus:ring-purple-500 mt-1 lg:mt-2"
-              />
-              <label className="ml-2 block text-base lg:text-xl ">
-                I have read and agree to the{" "}
-                <span className="text-blue-400">Terms of Use</span> and{" "}
-                <span className="text-blue-400">Privacy</span>
-              </label>
-            </div>
+              <div className="flex ">
+                <input
+                  type="checkbox"
+                  className="h-4 w-4 text-[#A435F0] border-gray-300 rounded focus:ring-purple-500 mt-1 lg:mt-2"
+                />
+                <label className="ml-2 block text-base lg:text-xl ">
+                  I have read and agree to the{" "}
+                  <span className="text-blue-400">Terms of Use</span> and{" "}
+                  <span className="text-blue-400">Privacy</span>
+                </label>
+              </div>
 
-            {/* Login Button */}
-            <button className="w-full text-xl  px-4 py-2 bg-[#A435F0] text-white rounded-md font-bold hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
-              Sing Up
-            </button>
+              {/* singup Button */}
+              <button
+                type="submit"
+                className="w-full text-xl  px-4 py-2 bg-[#A435F0] text-white rounded-md font-bold hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              >
+                Sing Up
+              </button>
 
-            {/* Help Button */}
-            <button className="w-full text-xl px-4 py-2 bg-gray-100  rounded-md font-bold hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500">
-              Help
-            </button>
+              {/* Help Button */}
+              <button className="w-full text-xl px-4 py-2 bg-gray-100  rounded-md font-bold hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                Help
+              </button>
+            </form>
 
             {/* Copyright Text */}
             <p className="text-gray-500 text-base mt-4 text-center">

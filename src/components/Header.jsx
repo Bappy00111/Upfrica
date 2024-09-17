@@ -35,7 +35,7 @@ export default function Header() {
           {/* Full Width Search Section */}
           <div className="mt-4 w-full flex items-center border rounded-xl py-2 px-2">
             <input
-              className="w-full focus:outline-none ps-3"
+              className="w-full border-none focus:outline-none focus:ring-0 ps-3"
               type="text"
               placeholder="Search Upfrica BD"
             />
