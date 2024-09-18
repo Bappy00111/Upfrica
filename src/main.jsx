@@ -12,6 +12,7 @@ import Login from "./components/Login.jsx";
 import CartProduct from "./components/CartProduct.jsx";
 import Checkout from './components/Checkout';
 import AddNewProducts from "./components/AddNewProducts.jsx";
+import DrafPage from "./components/DrafPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/addNewProducts",
         element: <AddNewProducts/>,
+      },
+      {
+        path: "/drafPage",
+        element: <DrafPage/>,
       },
      
     ],

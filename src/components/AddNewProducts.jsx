@@ -15,7 +15,10 @@ const AddNewProducts = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [arrowshowDropdown, setArrowShowDropdown] = useState(false);
   const [brandArrow, setBrandArrow] = useState(false);
-  const [approVal, setApproVal] = useState(false);
+  const [approVal, setApproVal] = useState(false); // Dropdown visibility state
+  const [selectedValue, setSelectedValue] = useState(""); // Selected value state
+  const [brand,setBrand] = useState(false)
+  // const [brandArrow, setArrowShowDropdown] = useState(false); // Dropdown visibility state
 
   // টগল করার ফাংশন
   const toggleForm = (e) => {
@@ -35,6 +38,7 @@ const AddNewProducts = () => {
   const maxNumber = 69;
 
   const onChange = (imageList, addUpdateIndex) => {
+    formik.setFieldValue("product_images", imageList);
     // data for submit
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
@@ -43,9 +47,31 @@ const AddNewProducts = () => {
   const formik = useFormik({
     initialValues: {
       supplierLink: "",
+      content: "",
+      backupSupplier: "",
+      supplerName: "",
+      supplerNumber: "",
+      vPrice: "",
+      productPrice: "",
+      Vshipping: "",
+      L: "",
+      W: "",
+      H: "",
+      CBM: "",
+      rate: "",
+      cbm: "",
+      shoppingCost: "",
+      productCost: "",
+      totalCost: "",
+      title: "",
+      images: [],
+      approval: "",
+      search: "",
+      condition: "",
+      brand: "",
     },
     onSubmit: (values) => {
-      console.log(values); // Handle form submission here
+      console.log(values);
     },
   });
   return (
@@ -343,10 +369,14 @@ const AddNewProducts = () => {
                         </label>
                       </div>
                       <div>
-                        <label htmlFor="Vprice($)">
+                        <label htmlFor="Vshipping">
                           Vshipping
                           <input
+                            id="Vshipping"
+                            name="Vshipping"
                             type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.Vshipping}
                             placeholder="ven"
                             className="w-full px-3 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-center"
                           />
@@ -354,30 +384,42 @@ const AddNewProducts = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="Vprice($)">
+                        <label htmlFor="L">
                           L
                           <input
+                            id="L"
+                            name="L"
                             type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.L}
                             placeholder="L"
                             className="w-full px-3 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 "
                           />
                         </label>
                       </div>
                       <div>
-                        <label htmlFor="Vprice($)">
+                        <label htmlFor="W">
                           w
                           <input
+                            id="W"
+                            name="W"
                             type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.W}
                             placeholder="W"
                             className="w-full px-3 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 "
                           />
                         </label>
                       </div>
                       <div>
-                        <label htmlFor="Vprice($)">
+                        <label htmlFor="H">
                           H
                           <input
+                            id="H"
+                            name="H"
                             type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.H}
                             placeholder="H"
                             className="w-full px-3 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 "
                           />
@@ -387,7 +429,11 @@ const AddNewProducts = () => {
                         <label htmlFor="1CBM">
                           1CBM
                           <input
+                            id="CBM"
+                            name="CBM"
                             type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.CBM}
                             placeholder="e.g"
                             className="w-full px-3 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 "
                           />
@@ -397,7 +443,11 @@ const AddNewProducts = () => {
                         <label htmlFor="Rate ($ to GHS)">
                           Rate ($ to GHS)
                           <input
+                            id="rate"
+                            name="rate"
                             type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.rate}
                             placeholder="Rate ($ to GHS)"
                             className="w-full px-3 py-6 border rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500 "
                           />
@@ -407,10 +457,63 @@ const AddNewProducts = () => {
                   </div>
                   {/* total cosst detels  */}
                   <div className="space-y-2 mb-4">
-                    <p className="text-base">CBM: 0.0</p>
-                    <p className="text-base">Shipping Cost: 0.0</p>
-                    <p className="text-base">Product cost:</p>
-                    <p className="text-base">Total cost:</p>
+                    <p className="text-base flex  items-center">
+                      CBM:{" "}
+                      <span>
+                        <input
+                          id="cbm"
+                          name="cmb"
+                          type="text"
+                          onChange={formik.handleChange}
+                          value={formik.values.cmb}
+                          placeholder="00"
+                          className="w-full px-3 py-2 border-none focus:ring-0 "
+                        />
+                      </span>
+                    </p>
+
+                    <p className="text-base flex  items-center">
+                      Shipping Cost:{" "}
+                      <span>
+                        <input
+                          id="shoppingCost"
+                          name="shoppingCost"
+                          type="text"
+                          onChange={formik.handleChange}
+                          value={formik.values.shoppingCost}
+                          placeholder="0.0"
+                          className="w-full px-3 py-2 border-none focus:ring-0 "
+                        />
+                      </span>
+                    </p>
+                    <p className="text-base flex  items-center">
+                      Product cost:{" "}
+                      <span>
+                        <input
+                          id="productCost"
+                          name="productCost"
+                          type="text"
+                          onChange={formik.handleChange}
+                          value={formik.values.productCost}
+                          placeholder="0.0"
+                          className="w-full px-3 py-2 border-none focus:ring-0 "
+                        />
+                      </span>
+                    </p>
+                    <p className="text-base flex  items-center">
+                      Total cost::{" "}
+                      <span>
+                        <input
+                          id="totalCost"
+                          name="totalCost"
+                          type="text"
+                          onChange={formik.handleChange}
+                          value={formik.values.totalCost}
+                          placeholder="0.0"
+                          className="w-full px-3 py-2 border-none focus:ring-0 "
+                        />
+                      </span>
+                    </p>
                   </div>
 
                   <div className="mt-6">
@@ -452,13 +555,17 @@ const AddNewProducts = () => {
             <hr className="border-gray-300 mb-4" />
 
             <input
+              id="title"
+              name="title"
               type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              value={formik.values.title}
+              onChange={formik.handleChange}
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Type something here..."
             />
-            <p className="text-gray-500 mt-2">{inputValue.length} / 80</p>
+            <p className="text-gray-500 mt-2">
+              {formik.values.title.length} / 80
+            </p>
           </div>
           {/* *Item description */}
           <div>
@@ -477,6 +584,10 @@ const AddNewProducts = () => {
             <Editor
               apiKey="wlfjcowajns1o44b16c3vyk0lmxnctw5pehcbmo9070i2f4x"
               onInit={(_evt, editor) => (editorRef.current = editor)}
+              value={formik.values.content}
+              onEditorChange={(content) =>
+                formik.setFieldValue("content", content)
+              }
               initialValue="<p></p>"
               init={{
                 height: 200,
@@ -486,7 +597,7 @@ const AddNewProducts = () => {
                   "autolink",
                   "lists",
                   "link",
-                  "image",
+                  "product_images",
                   "charmap",
                   "preview",
                   "anchor",
@@ -523,14 +634,20 @@ const AddNewProducts = () => {
             <h2 className="text-2xl font-bold mb-2">*Category</h2>
 
             <hr className="border-gray-300 mb-4" />
-            <div className="relative flex items-center justify-between border  rounded-md group focus-within:border-purple-500 ">
+            <div className="relative flex items-center justify-between border rounded-md group focus-within:border-purple-500">
               <input
                 className="w-full border-none focus:outline-none focus:ring-0 py-2 ps-3"
                 type="text"
                 placeholder="Search Upfrica BD"
-                onClick={() => setShowDropdown(!showDropdown)}
+                value={formik.values.search} // Formik value
+                onClick={() => setShowDropdown(!showDropdown)} // Toggle dropdown on click
+                onChange={formik.handleChange} // Handle input change
+                name="search" // Set the name for formik
               />
-              <button className="bg-purple-500 text-white h-[45px] px-6 rounded-tr-md rounded-br-md">
+              <button
+                type="button"
+                className="bg-purple-500 text-white h-[45px] px-6 rounded-tr-md rounded-br-md"
+              >
                 More
               </button>
 
@@ -538,9 +655,33 @@ const AddNewProducts = () => {
               {showDropdown && (
                 <div className="absolute top-full left-0 w-full bg-white border rounded shadow-lg mt-2 z-10">
                   <ul className="py-2">
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 1</li>
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 2</li>
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 3</li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("search", "Option 1"); // Set selected value to Formik field
+                        setShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 1
+                    </li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("search", "Option 2"); // Set selected value to Formik field
+                        setShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 2
+                    </li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("search", "Option 3"); // Set selected value to Formik field
+                        setShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 3
+                    </li>
                   </ul>
                 </div>
               )}
@@ -553,22 +694,28 @@ const AddNewProducts = () => {
             <h2 className="text-2xl font-bold mb-2">*Condition</h2>
             <p>
               Use keywords people would search for when looking for your item.
-              Include details such us colour, size, brand & model.
+              Include details such as colour, size, brand & model.
             </p>
             <hr className="border-gray-300 mb-4" />
-            <div className="relative flex items-center justify-between border  rounded-md group focus-within:border-purple-500 ">
+
+            <div className="relative flex items-center justify-between border rounded-md group focus-within:border-purple-500">
               <input
+                id="condition"
+                name="condition"
                 className="w-full border-none focus:outline-none focus:ring-0 py-2 ps-3"
                 type="text"
                 placeholder="Search Upfrica BD"
-                onClick={() => setArrowShowDropdown(!arrowshowDropdown)}
+                value={formik.values.condition} // Set Formik value
+                onChange={formik.handleChange}
+                readOnly // Input is read-only to prevent typing
+                onClick={() => setArrowShowDropdown(!arrowshowDropdown)} // Toggle dropdown
               />
               {arrowshowDropdown ? (
-                <button className=" h-[45px] px-6 rounded-tr-md rounded-br-md">
+                <button className="h-[45px] px-6 rounded-tr-md rounded-br-md">
                   <MdOutlineArrowDropUp />
                 </button>
               ) : (
-                <button className=" h-[45px] px-6 rounded-tr-md rounded-br-md">
+                <button className="h-[45px] px-6 rounded-tr-md rounded-br-md">
                   <MdOutlineArrowDropDown />
                 </button>
               )}
@@ -577,54 +724,104 @@ const AddNewProducts = () => {
               {arrowshowDropdown && (
                 <div className="absolute top-full left-0 w-full bg-white border rounded shadow-lg mt-2 z-10">
                   <ul className="py-2">
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 1</li>
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 2</li>
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 3</li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("condition", "Option 1"); // Set selected value
+                        setArrowShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 1
+                    </li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("condition", "Option 2"); // Set selected value
+                        setArrowShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 2
+                    </li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("condition", "Option 3"); // Set selected value
+                        setArrowShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 3
+                    </li>
                   </ul>
                 </div>
               )}
             </div>
-
-            <p className="">Select or tap on more</p>
           </div>
           {/* Brand  */}
           <div className="py-4">
-            <h2 className="text-2xl font-bold mb-2">Brand</h2>
+            <h2 className="text-2xl font-bold mb-2">*Brand</h2>
             <p>
               Use keywords people would search for when looking for your item.
-              Include details such us colour, size, brand & model.
+              Include details such as colour, size, brand & model.
             </p>
             <hr className="border-gray-300 mb-4" />
-            <div className="relative flex items-center justify-between border  rounded-md group focus-within:border-purple-500 ">
+
+            <div className="relative flex items-center justify-between border rounded-md group focus-within:border-purple-500">
               <input
+                id="brand"
+                name="brand"
                 className="w-full border-none focus:outline-none focus:ring-0 py-2 ps-3"
                 type="text"
                 placeholder="Search Upfrica BD"
-                onClick={() => setBrandArrow(!brandArrow)}
+                value={formik.values.brand} // Set Formik value
+                onChange={formik.handleChange}
+                readOnly // Input is read-only to prevent typing
+                onClick={() => setArrowShowDropdown(!arrowshowDropdown)} // Toggle dropdown
               />
-              {brandArrow ? (
-                <button className=" h-[45px] px-6 rounded-tr-md rounded-br-md">
+              {brand ? (
+                <button className="h-[45px] px-6 rounded-tr-md rounded-br-md">
                   <MdOutlineArrowDropUp />
                 </button>
               ) : (
-                <button className=" h-[45px] px-6 rounded-tr-md rounded-br-md">
+                <button className="h-[45px] px-6 rounded-tr-md rounded-br-md">
                   <MdOutlineArrowDropDown />
                 </button>
               )}
 
               {/* Dropdown list */}
-              {brandArrow && (
+              {arrowshowDropdown && (
                 <div className="absolute top-full left-0 w-full bg-white border rounded shadow-lg mt-2 z-10">
                   <ul className="py-2">
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 1</li>
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 2</li>
-                    <li className="px-4 py-2 hover:bg-gray-200">Option 3</li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("brand", "Option 1"); // Set selected value
+                        setArrowShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 1
+                    </li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("brand", "Option 2"); // Set selected value
+                        setArrowShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 2
+                    </li>
+                    <li
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => {
+                        formik.setFieldValue("brand", "Option 3"); // Set selected value
+                        setArrowShowDropdown(false); // Hide dropdown after selection
+                      }}
+                    >
+                      Option 3
+                    </li>
                   </ul>
                 </div>
               )}
             </div>
-
-            <p className="">Select or tap on more</p>
           </div>
 
           {/* *Photos & Video */}
@@ -656,6 +853,7 @@ const AddNewProducts = () => {
                     // write your building UI
                     <div className="upload__image-wrapper">
                       <button
+                        type="button"
                         className="h-40 w-40 border"
                         style={isDragging ? { color: "red" } : undefined}
                         onClick={onImageUpload}
@@ -693,7 +891,11 @@ const AddNewProducts = () => {
             <div className="py-6 space-y-2">
               <p>YouTube video link - optional</p>
               <input
+                id="youTubeLink"
+                name="youTubeLink"
                 type="text"
+                onChange={formik.handleChange}
+                value={formik.values.youTubeLink}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="https://www.youtube.com/watch?v=nLl0z0YC6hk"
               />
@@ -763,8 +965,10 @@ const AddNewProducts = () => {
                     <input
                       className="border-none text-xl font-bold focus:outline-none focus:ring-0"
                       type="text"
-                      name=""
-                      id=""
+                      name="productPrice"
+                      id="price"
+                      onChange={formik.handleChange}
+                      value={formik.values.productPrice}
                       placeholder="Price"
                     />
                   </div>
@@ -773,7 +977,11 @@ const AddNewProducts = () => {
                   <h1 className="text-gray-700 text-base">Unit value</h1>
                   <div className="flex  md:items-center space-x-2  text-xl font-bold">
                     <input
+                      id="unitValue"
+                      name="unitValue"
                       type="number"
+                      onChange={formik.handleChange}
+                      value={formik.values.unitValue}
                       className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                       placeholder="0"
                     />
@@ -783,8 +991,12 @@ const AddNewProducts = () => {
                   <h1 className="text-gray-700 text-base">Unit of measure</h1>
                   <div className="flex items-center space-x-2  text-xl font-bold">
                     <input
+                      id="unitOf"
+                      name="unitOf"
                       className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                       type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.unitOf}
                       placeholder="each"
                       onClick={() => setBrandArrow(!brandArrow)}
                     />
@@ -797,22 +1009,53 @@ const AddNewProducts = () => {
             <div className="my-4">
               <h1 className="text-2xl font-bold">Approval notes</h1>
               <hr className="my-6" />
-              <div className="relative flex items-center justify-between border  rounded-md group focus-within:border-purple-500 ">
+              <div className="relative flex items-center justify-between border rounded-md group focus-within:border-purple-500">
                 <input
+                  id="approval"
+                  name="approval"
                   className="w-full border-none focus:outline-none focus:ring-0 py-2 ps-3"
                   type="text"
+                  onChange={formik.handleChange}
+                  value={formik.values.approval} // Formik's field value
                   readOnly
-                  placeholder="select"
-                  onClick={() => setApproVal(!approVal)}
+                  placeholder="Select"
+                  onClick={() => setApproVal(!approVal)} // Toggle dropdown on click
                 />
 
                 {/* Dropdown list */}
                 {approVal && (
                   <div className="absolute top-full left-0 w-full bg-white border rounded shadow-lg mt-2 z-10">
                     <ul className="py-2">
-                      <li className="px-4 py-2 hover:bg-gray-200">Option 1</li>
-                      <li className="px-4 py-2 hover:bg-gray-200">Option 2</li>
-                      <li className="px-4 py-2 hover:bg-gray-200">Option 3</li>
+                      <li
+                        className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                        onClick={() => {
+                          setSelectedValue("Option 1");
+                          formik.setFieldValue("approval", "Option 1"); // Set value to Formik field
+                          setApproVal(false); // Close dropdown after selection
+                        }}
+                      >
+                        Option 1
+                      </li>
+                      <li
+                        className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                        onClick={() => {
+                          setSelectedValue("Option 2");
+                          formik.setFieldValue("approval", "Option 2"); // Set value to Formik field
+                          setApproVal(false); // Close dropdown after selection
+                        }}
+                      >
+                        Option 2
+                      </li>
+                      <li
+                        className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                        onClick={() => {
+                          setSelectedValue("Option 3");
+                          formik.setFieldValue("approval", "Option 3"); // Set value to Formik field
+                          setApproVal(false); // Close dropdown after selection
+                        }}
+                      >
+                        Option 3
+                      </li>
                     </ul>
                   </div>
                 )}
@@ -822,6 +1065,7 @@ const AddNewProducts = () => {
         </div>
         <div className="flex justify-between text-xl font-bold p-4">
           <button
+            onClick={() => console.log(editorRef.current.getContent())}
             type="submit"
             className="bg-purple-500 text-white px-4 py-2 rounded-md"
           >
