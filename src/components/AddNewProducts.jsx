@@ -19,7 +19,7 @@ const AddNewProducts = () => {
 
   // টগল করার ফাংশন
   const toggleForm = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setIsOpen(!isOpen);
   };
 
@@ -41,16 +41,19 @@ const AddNewProducts = () => {
   };
 
   const formik = useFormik({
-    initialValues:{
-      supplierLink:""
+    initialValues: {
+      supplierLink: "",
     },
-     onSubmit: (values) => {
+    onSubmit: (values) => {
       console.log(values); // Handle form submission here
-    }
-  })
+    },
+  });
   return (
     <div className="flex justify-center pt-20 bg-slate-50">
-      <form onSubmit={formik.handleSubmit} className="w-full md:w-3/5 2xl:w-1/2 py-5">
+      <form
+        onSubmit={formik.handleSubmit}
+        className="w-full md:w-3/5 2xl:w-1/2 py-5"
+      >
         <div className="text-center space-y-4 py-5">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
             Add New Listing
@@ -262,7 +265,11 @@ const AddNewProducts = () => {
                       Backup Supplier Link
                     </label>
                     <input
+                      id="backupSupplier"
+                      name="backupSupplier"
                       type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.backupSupplier}
                       placeholder="2nd Supplier link"
                       className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
@@ -273,7 +280,11 @@ const AddNewProducts = () => {
                       Supplier name
                     </label>
                     <input
+                      id="supplerName"
+                      name="supplerName"
                       type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.supplerName}
                       placeholder="Supplier name"
                       className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
@@ -284,7 +295,11 @@ const AddNewProducts = () => {
                       Supplier phone number
                     </label>
                     <input
+                      id="supplerNumber"
+                      name="supplerNumber"
                       type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.supplerNumber}
                       placeholder="Supplier phone number"
                       className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
@@ -293,8 +308,19 @@ const AddNewProducts = () => {
                   {/* Product Costing */}
                   <div>
                     <p className="font-bold">Product Costing(USD)</p>
-                    <p>
-                      Price <span className="font-bold">$0</span>
+                    <p className="flex items-center">
+                      Price $
+                      <span className="font-bold">
+                        <input
+                          id="productPrice"
+                          name="productPrice"
+                          type="text"
+                          onChange={formik.handleChange}
+                          value={formik.values.productPrice}
+                          placeholder=""
+                          className="w-full px-3 py-2 border-none focus:ring-0 "
+                        />
+                      </span>
                     </p>
                     <hr />
                   </div>
@@ -306,7 +332,11 @@ const AddNewProducts = () => {
                         <label htmlFor="Vprice($)">
                           Vprice($)
                           <input
+                            id="vPrice"
+                            name="vPrice"
                             type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.vPrice}
                             placeholder="ver"
                             className="w-full px-3 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-center"
                           />
@@ -775,7 +805,6 @@ const AddNewProducts = () => {
                   placeholder="select"
                   onClick={() => setApproVal(!approVal)}
                 />
-              
 
                 {/* Dropdown list */}
                 {approVal && (
@@ -792,7 +821,10 @@ const AddNewProducts = () => {
           </div>
         </div>
         <div className="flex justify-between text-xl font-bold p-4">
-          <button type="submit" className="bg-purple-500 text-white px-4 py-2 rounded-md">
+          <button
+            type="submit"
+            className="bg-purple-500 text-white px-4 py-2 rounded-md"
+          >
             Save and continue
           </button>
           <button>Cancel</button>
