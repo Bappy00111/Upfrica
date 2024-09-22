@@ -15,60 +15,18 @@ const DrafPage = () => {
   }, []);
 
   return (
-    // <div>
-    //   <div className="border py-10 text-5xl font-bold px-4">
-    //     <h1> 10 unpublished</h1>
-    //   </div>
-    //   <div className="overflow-x-auto">
-    //     <table className="min-w-full divide-y divide-gray-200">
-    //       <thead className="bg-gray-50">
-    //         <tr className="text-xl font-bold">
-    //           <th className="px-6 py-3 text-left text-gray-500 uppercase tracking-wider w-1/12">
-    //             ID
-    //           </th>
-    //           <th className="px-6 py-3 text-left text-gray-500 uppercase tracking-wider w-3/12">
-    //             Product
-    //           </th>
-    //           <th className="px-6 py-3 text-left text-gray-500 uppercase tracking-wider w-8/12">
-    //             Details
-    //           </th>
-    //         </tr>
-    //       </thead>
-    //       <tbody className="bg-white divide-y divide-gray-200 text-base font-bold">
-    //         {products?.map((product) => (
-    //           <tr key={product?.id}>
-    //             <td className="px-6 py-4 whitespace-nowrap w-1/12">
-    //               {product?.id}
-    //             </td>
-    //             <td className="px-6 py-4 whitespace-nowrap w-3/12">
-    //               <div className="flex justify-between items-center">
-    //                 <p>draft</p>
-    //                 <p>Edit</p>
-    //                 <span>
-    //                   <MdDelete className="text-blue-500" />
-    //                 </span>
-    //               </div>
-    //             </td>
-    //             <td className="px-6 py-4 whitespace-nowrap w-8/12">
-    //               {product?.description?.body}
-    //             </td>
-    //           </tr>
-    //         ))}
-    //       </tbody>
-    //     </table>
-    //   </div>
-    // </div>
+    
     <div className="overflow-x-auto">
       <table className="min-w-full table-auto border-collapse border border-gray-300">
         <thead className="bg-gray-200 text-xl font-bold">
           <tr>
-            <th className="border border-gray-300 px-6 py-3 w-1/12 text-left text-gray-700">
+            <th className="border border-gray-300 px-6 py-3 lg:w-1/12 text-left text-gray-700">
               ID
             </th>
-            <th className="border border-gray-300 px-6 py-3 w-2/12 text-left text-gray-700">
+            <th className="border border-gray-300 px-6 py-3 lg:w-2/12  text-left text-gray-700">
               Product
             </th>
-            <th className="border border-gray-300 px-6 py-3 w-8/12 text-left text-gray-700">
+            <th className="border border-gray-300 px-6 py-3 lg:w-9/12 text-left text-gray-700">
               Details
             </th>
           </tr>
@@ -79,11 +37,11 @@ const DrafPage = () => {
               key={product.id}
               className="text-base  tracking-wide cursor-pointer"
             >
-              <td className="border border-gray-300 px-6 py-10">
+              <td className="border border-gray-300 px-6 py-2 md:py-8">
                 {product.id}
               </td>
               <td className="border border-gray-300 px-4">
-                <div className="flex justify-between items-center space-x-2">
+                <div className="md:flex justify-between items-center space-x-2">
                   {/* Dropdown for Draft/Published */}
                   <div className="relative">
                     <button

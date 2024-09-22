@@ -13,6 +13,7 @@ import CartProduct from "./components/CartProduct.jsx";
 import Checkout from './components/Checkout';
 import AddNewProducts from "./components/AddNewProducts.jsx";
 import DrafPage from "./components/DrafPage.jsx";
+import User from "./components/User.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
         element: <AddNewProducts/>,
       },
       {
-        path: "/drafPage/:id",
+        path: "/drafPage",
         element: <DrafPage/>,
       },
      
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <Checkout/>,
+  },
+  {
+    path: "/user",
+    element: <User/>,
   },
 
 
