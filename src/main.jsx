@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <AddNewProducts/>,
       },
       {
-        path: "/drafPage",
+        path: "/drafPage/:id",
         element: <DrafPage/>,
       },
      

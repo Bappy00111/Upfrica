@@ -134,13 +134,13 @@ const DrafPage = () => {
                 </div>
               </td>
 
-              <td className="border border-gray-300 px-6 py-4 text-base flex gap-5">
+              <td className="border border-gray-300 px-6 py-4 text-base flex gap-5 ">
                 <img
                   className="h-32 w-32"
                   src="https://d3f8uk6yuqjl48.cloudfront.net/e9whfnyep44ir6z3kjkh4j5rdqw2"
                   alt=""
                 />
-                <div>
+                <div className="space-y-2">
                   <p> {product?.title}</p>
                   <p className="flex gap-4 items-center">
                     <span>Price: ${product?.price?.cents}</span>

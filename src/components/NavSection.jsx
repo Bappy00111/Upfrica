@@ -17,7 +17,7 @@ export default function NavSection() {
     >
       <ul className="text-base font-bold  flex gap-6 tracking-wide text-gray-600 ">
         {datas.map((data) => (
-          <Link key={data.id}>
+          <Link to={`/drafPage/${datas.id}`} key={data.id}>
             <li className="hover:text-purple-500" >
               {data.title}
             </li>
