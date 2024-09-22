@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { CiEdit } from "react-icons/ci";
+import { FaLocationPin } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 
 const DrafPage = () => {
@@ -7,7 +9,7 @@ const DrafPage = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    fetch("https://upfrica-staging.herokuapp.com/api/v1/products?page=2")
+    fetch("https://upfrica-staging.herokuapp.com/api/v1/products?page=1")
       .then((res) => res.json())
       .then((data) => setProducts(data.products));
   }, []);
@@ -63,7 +65,7 @@ const DrafPage = () => {
             <th className="border border-gray-300 px-6 py-3 w-1/12 text-left text-gray-700">
               ID
             </th>
-            <th className="border border-gray-300 px-6 py-3 w-3/12 text-left text-gray-700">
+            <th className="border border-gray-300 px-6 py-3 w-2/12 text-left text-gray-700">
               Product
             </th>
             <th className="border border-gray-300 px-6 py-3 w-8/12 text-left text-gray-700">
@@ -75,7 +77,7 @@ const DrafPage = () => {
           {products.map((product) => (
             <tr
               key={product.id}
-              className="text-base font-bold tracking-wide cursor-pointer"
+              className="text-base  tracking-wide cursor-pointer"
             >
               <td className="border border-gray-300 px-6 py-10">
                 {product.id}
@@ -117,7 +119,10 @@ const DrafPage = () => {
                   </div>
 
                   {/* Edit Button */}
-                  <p className="text-[#AF35F0] font-semibold cursor-pointer hover:underline">
+                  <p className="text-[#AF35F0] font-semibold cursor-pointer hover:underline flex  items-center gap-2">
+                    <span>
+                      <CiEdit className="h-6 w-6" />
+                    </span>
                     Edit
                   </p>
 
@@ -129,8 +134,33 @@ const DrafPage = () => {
                 </div>
               </td>
 
-              <td className="border border-gray-300 px-6 py-4">
-                {product.details}
+              <td className="border border-gray-300 px-6 py-4 text-base flex gap-5">
+                <img
+                  className="h-32 w-32"
+                  src="https://d3f8uk6yuqjl48.cloudfront.net/e9whfnyep44ir6z3kjkh4j5rdqw2"
+                  alt=""
+                />
+                <div>
+                  <p> {product?.title}</p>
+                  <p className="flex gap-4 items-center">
+                    <span>Price: ${product?.price?.cents}</span>
+                    <span>Delivery: Free</span>
+                  </p>
+                  <p className="flex items-center space-x-2">
+                    <span>
+                      <FaLocationPin className="text-gray-400" />
+                    </span>
+                    <span>Madina, GH by Osman</span>
+                    <span>by Osman</span> |
+                    <span className="hover:text-red-500"> TechZone Hub </span> |
+                    <span className="hover:text-red-500"> Whatsap </span> |
+                    <span className="hover:text-red-500">
+                      {" "}
+                      bappy@gmail.com{" "}
+                    </span>
+                  </p>
+                  <p>3 days ago</p>
+                </div>
               </td>
             </tr>
           ))}

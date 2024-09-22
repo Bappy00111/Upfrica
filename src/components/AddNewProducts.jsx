@@ -17,7 +17,7 @@ const AddNewProducts = () => {
   const [brandArrow, setBrandArrow] = useState(false);
   const [approVal, setApproVal] = useState(false); // Dropdown visibility state
   const [selectedValue, setSelectedValue] = useState(""); // Selected value state
-  const [brand,setBrand] = useState(false)
+  const [brand, setBrand] = useState(false);
   // const [brandArrow, setArrowShowDropdown] = useState(false); // Dropdown visibility state
 
   // টগল করার ফাংশন
@@ -621,12 +621,7 @@ const AddNewProducts = () => {
                   "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
               }}
             />
-            {/* <textarea
-              type="textbox"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-              rows="3"
-              placeholder="Tell buyers about the unique features, and/or why you are selling it."
-            /> */}
+
             <p className="">Add accurate and concise details of your product</p>
           </div>
           {/* *Category */}
