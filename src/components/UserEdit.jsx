@@ -1,72 +1,51 @@
 import React from "react";
+import FormInput from "./FormInput ";
+import Checkbox from "./Checkbox";
+import Button from "./Button";
 
 const UserEdit = () => {
   return (
-    <div className="w-full bg-white shadow-2xl p-10 rounded-md pb-2 space-y-4">
-      <div className="">
-        <h2 className="text-2xl font-bold">Edit User timtooni</h2>
+    <div className=" w-full bg-white shadow-2xl rounded-md space-y-4 md:p-10 p-2">
+      {/* <h2 className="text-2xl font-bold">Edit User timtooni</h2> */}
+      <div className="lg:flex justify-between">
+        <h2 className="text-base md:text-2xl lg:text-3xl font-bold">Edit User jeobless</h2>
+        <Button label="Show User jeobless"></Button>
       </div>
       <hr />
-      <form className="space-y-5 w-1/2 px-10">
-        {/* full name */}
-        <div className="flex items-center justify-start w-full ">
-          <label
-            className="text-gray-700 w-1/6 text-left pr-4 text-xl font-bold"
-            htmlFor="username"
-          >
-            Full name:
-          </label>
-          <input
-            className="w-3/4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            type="text"
-            id="username"
-            placeholder="Enter your full name"
-          />
-        </div>
-        {/* user Name  */}
-        <div className="flex items-center justify-start w-full ">
-          <label
-            className="text-gray-700 w-1/6 text-left pr-4 text-xl font-bold"
-            htmlFor="username"
-          >
-            Username:
-          </label>
-          <input
-            className="w-3/4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            type="text"
-            id="username"
-            placeholder="Enter your full name"
-          />
-        </div>
-
-        {/* Email */}
-        <div className="flex items-center justify-start w-full">
-          <label className="text-gray-700 w-1/6 text-left pr-4 text-xl" htmlFor="email">
-            Email:
-          </label>
-          <input
-            className="w-3/4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-          />
-        </div>
-
-        {/* Password */}
-        <div className="flex items-center justify-start w-full">
-          <label
-            className="text-gray-700 w-1/6 text-left pr-4"
-            htmlFor="password"
-          >
-            Password:
-          </label>
-          <input
-            className="w-3/4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-          />
-        </div>
+      <form className="w-full lg:w-2/3  md:p-10 flex flex-col justify-center items-center space-y-4">
+        <FormInput
+          label="Full Name:"
+          type="text"
+          id="fullName"
+          placeholder="Enter your full name"
+        />
+        <FormInput
+          label="Username:"
+          type="text"
+          id="username"
+          placeholder="Enter your username"
+        />
+        <FormInput
+          label="Email:"
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+        />
+        <FormInput
+          label="Password:"
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+        />
+        <FormInput
+          label="Password Confirmation:"
+          type="password"
+          id="confirmPassword"
+          placeholder="Confirm your password"
+        />
+        <Checkbox label="Admin" id="isAdmin" />
+        <Checkbox label="Terms of service" id="terms" />
+        <Button label="Update User" />
       </form>
     </div>
   );

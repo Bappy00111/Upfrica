@@ -6,13 +6,13 @@ import UserEdit from './UserEdit';
 
 const UserOutLate = () => {
     return (
-        <div className='container grid grid-cols-6 mt-10'>
-            <div className='col-span-1'>
+        <div className='container md:grid md:grid-cols-12  gap-4 p-4'>
+            <div className='md:col-span-2'>
                 <User/>
             </div>
-            <div className='col-span-5'>
+            <div className='md:col-span-9'>
                 <Outlet/>
-                
+                {/* <h1>hellow</h1> */}
             </div>
         </div>
     );

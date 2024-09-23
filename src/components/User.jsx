@@ -22,7 +22,7 @@ const User = () => {
 
   return (
     <div className="container flex mt-10 gap-5">
-      <div className="w-40 text-base space-y-8 cursor-pointer">
+      <div className="lg:w-[300px] text-base space-y-8 cursor-pointer">
         <h2 className="flex items-center gap-2">
           <IoArrowBack />
           Back to App
