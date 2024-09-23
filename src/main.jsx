@@ -14,6 +14,10 @@ import Checkout from './components/Checkout';
 import AddNewProducts from "./components/AddNewProducts.jsx";
 import DrafPage from "./components/DrafPage.jsx";
 import User from "./components/User.jsx";
+import UserOutLate from "./components/UserOutLate.jsx";
+import UserContent from "./components/UserContent.jsx";
+import UserEdit from "./components/UserEdit.jsx";
+import DashBoard from "./components/DashBoard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +65,22 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <User/>,
+    element: <UserOutLate/>,
+    children:[
+      {
+        path:'',
+        element: <UserContent/>
+      },
+      {
+        path:'dashboard',
+        element: <DashBoard/>
+      },
+      {
+        path:'UserEdit',
+        element: <UserEdit/>
+      },
+    ]
+   
   },
 
 
