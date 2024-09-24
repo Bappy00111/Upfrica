@@ -60,13 +60,15 @@ export default function Header() {
         {/* Large Devices Layout */}
         <div className="hidden xl:flex lg:w-full lg:gap-4 items-center">
           {/* Profile Image */}
-          <div className="lg:w-1/6 flex justify-start">
-            <img
-              className="h-10 w-26"
-              src="https://d26ukeum83vx3b.cloudfront.net/assets/upfrica-com-logo-dark_170x-94d438d62a4c6b2c2c70fe1084c008f4584357ed2847dac5fc38818a0de6459d.webp"
-              alt="Profile"
-            />
-          </div>
+            <div className="lg:w-1/6 flex justify-start">
+          <Link to='/'>
+              <img
+                className="h-10 w-26"
+                src="https://d26ukeum83vx3b.cloudfront.net/assets/upfrica-com-logo-dark_170x-94d438d62a4c6b2c2c70fe1084c008f4584357ed2847dac5fc38818a0de6459d.webp"
+                alt="Profile"
+              />
+          </Link>
+            </div>
 
           {/* Search Section */}
           <div className="lg:w-2/4 flex items-center border rounded-xl py-1 px-2 group">

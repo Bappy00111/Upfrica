@@ -25,7 +25,7 @@ export default function SingelLightningSection({ product }) {
                   
                   src={product_images[0]} // Sudhu prothom image ta show hobe
                   alt="Product"
-                  className="w-full h-56 object-cover rounded-lg"
+                  className="w-full h-96 object-cover rounded-lg"
                 />
 
               </Link>

@@ -9,13 +9,16 @@ import {
 import { MdLocalPhone, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
 import { FaArrowLeft, FaArrowRight, FaHeart } from "react-icons/fa";
-import { Link, useLocation, useParams } from "react-router-dom";
-
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const DetelsProduct = () => {
+  const navigation = useNavigate();
   const location = useLocation();
   // console.log()
-  const { id, product_images, title } = location.state || {};
-  console.log(id);
+  const { id, product_images, title, price, postage_fee } =
+    location.state || {};
+  // console.log(id);
   // const {id} = useParams()
   // console.log('userId',id)
   const laptopDetails = [
@@ -133,24 +136,52 @@ const DetelsProduct = () => {
     );
   };
 
+  // added cart item loccal store age
+
+  const handleAddToBasket = () => {
+    // Product er details
+    const productData = {
+      id: id,
+      title: title,
+      price: price,
+      quantity: 1, // Default 1 quantity initially
+      image: product_images,
+      // delivery:postage_fee
+    };
+
+    // Existing basket theke data niye asha
+    const basket = JSON.parse(localStorage.getItem("basket")) || [];
+
+    // Check korbo je product already ase kina
+    const existingProductIndex = basket.findIndex(
+      (item) => item.id === productData.id
+    );
+
+    if (existingProductIndex >= 0) {
+      // Product already basket e thakle quantity increase korbo
+      basket[existingProductIndex].quantity += 1;
+    } else {
+      // Product basket e na thakle, basket e push korbo
+      basket.push(productData);
+    }
+
+    // localStorage e update korbo
+    localStorage.setItem("basket", JSON.stringify(basket));
+
+    toast.success(`${title} has been added to your basket!`, {
+      position: "top-center",
+      autoClose: 5000,
+      theme: "dark",
+    });
+    setTimeout(() => {
+      navigation("/cartProdct");
+    }, 2000);
+  };
+
   return (
     <div className="container space-y-6 md:w-full lg:w-3/4 xl:w-4/5 px-2">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5">
-        {/* Image Section */}
-        {/* <div >
-          <div className="">
-            {product_images &&
-              product_images.length > 0 &&
-              product_images !== null && (
-                <img
-                  src={product_images[0]} // Sudhu prothom image ta show hobe
-                  alt="Product"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              )}
-          </div>
-        </div> */}
-
+        {/* image section  */}
         <div className="relative max-w-4xl mx-auto">
           {/* Slides */}
           {product_images && product_images.length > 0 && (
@@ -216,7 +247,7 @@ const DetelsProduct = () => {
           </p>
 
           <p className="text-base font-bold">
-            Price: <span className="text-xl">$159.77</span> each
+            Price: <span className="text-xl">${price.cents}</span> each
           </p>
           <p className="text-gray-600 ">
             RRP <span className="line-through">$166.17</span> You Save: $6.39
@@ -246,11 +277,14 @@ const DetelsProduct = () => {
               Get a $4.79 credit for late delivery
             </p>
           </div>
-          <Link to="/cartProdct">
-            <button className="bg-[#F7C32E] w-full p-2 rounded-3xl text-base font-bold">
-              Add to basket
-            </button>
-          </Link>
+          {/* <Link to="/cartProdct"> */}
+          <button
+            onClick={handleAddToBasket}
+            className="bg-[#F7C32E] w-full p-2 rounded-3xl text-base font-bold"
+          >
+            Add to basket
+          </button>
+          {/* </Link> */}
 
           {/* More text content as required */}
 
@@ -420,6 +454,7 @@ const DetelsProduct = () => {
           ))}
         </div>
       </div>
+      <ToastContainer position="top-center" autoClose={5000} theme="dark" />
     </div>
   );
 };
