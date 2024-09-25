@@ -8,7 +8,7 @@ import Qussen from './Qussen'
 export default function Home() {
   return (
     <div className='space-y-5'>
-        <Categore/>
+        {/* <Categore/> */}
         <LightningSection/>
         <ArrivalsSection/>
         <ContentSection/>

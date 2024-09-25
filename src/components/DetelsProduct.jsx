@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaLocationPin } from "react-icons/fa6";
 import Details from "./Details";
 import {
@@ -12,15 +12,40 @@ import { FaArrowLeft, FaArrowRight, FaHeart } from "react-icons/fa";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DetelsButton from "./DetelsButton";
+import PriceSection from "./PriceSection";
+import SalesEndSection from "./SalesEndSection";
+import CollectionDetails from "./CollectionDetails";
+import FreeDeliveryInfo from "./FreeDeliveryInfo";
+import DeliveryDate from "./DeliveryDate";
+import LaptopDetails from "./LaptopDetails";
+import ConfidenceSection from "./ConfidenceSection";
+import AddToBasketButton from "./AddToBasketButton";
 const DetelsProduct = () => {
+  // useEffect(() => {
+  //   // Page ke top e scroll kore niye ashte
+  //   window.scrollTo(0, 0);
+  // }, []);
   const navigation = useNavigate();
   const location = useLocation();
+  const [timeRemaining, setTimeRemaining] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
   // console.log()
-  const { id, product_images, title, price, postage_fee } =
-    location.state || {};
-  // console.log(id);
-  // const {id} = useParams()
-  // console.log('userId',id)
+  const {
+    id,
+    product_images,
+    title,
+    price,
+    postage_fee,
+    sale_end_date,
+    sale_start_date,
+  } = location.state || {};
+
+
   const laptopDetails = [
     {
       Condition: "Renewed",
@@ -137,7 +162,6 @@ const DetelsProduct = () => {
   };
 
   // added cart item loccal store age
-
   const handleAddToBasket = () => {
     // Product er details
     const productData = {
@@ -178,6 +202,38 @@ const DetelsProduct = () => {
     }, 2000);
   };
 
+  // sale date
+
+  useEffect(() => {
+    setInterval(() => {
+      const saleSatrtDate = new Date(sale_start_date);
+      const saleEndDate = new Date(sale_end_date);
+
+      // বর্তমানে কত সময় বাকি আছে, সেটা বের করতে
+      const currentDate = new Date();
+
+      // সেল শেষ হবার সময় এবং বর্তমান সময়ের মধ্যে পার্থক্য বের করা
+      const timeRemaining =   currentDate - saleEndDate;
+      // const timeRemaining =    saleEndDate - currentDate;
+
+      const seconds = Math.floor((timeRemaining / 1000) % 60);
+      const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
+      const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+      // console.log(
+      //   `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds remaining`
+      // );
+
+      setTimeRemaining({
+        days,
+        hours,
+        minutes,
+        seconds,
+      });
+    }, 1000);
+  }, []);
+
   return (
     <div className="container space-y-6 md:w-full lg:w-3/4 xl:w-4/5 px-2">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5">
@@ -187,9 +243,9 @@ const DetelsProduct = () => {
           {product_images && product_images.length > 0 && (
             <div className="overflow-hidden">
               <img
-                src={product_images[currentImageIndex]} // Current image display
+                src={product_images[currentImageIndex]}
                 alt={`Product ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-cover  rounded-lg"
               />
             </div>
           )}
@@ -225,137 +281,50 @@ const DetelsProduct = () => {
         </div>
 
         {/* Text Section */}
-        <div className="space-y-4 ">
+
+        <div className="space-y-4 text-base">
           <div className="text-xl md:text-2xl font-bold">{title}</div>
-          <button className="border py-1 md:py-2 px-2 md:px-4 hover:bg-purple-500 hover:text-white md:text-xl text-purple-500 border-purple-500 rounded-lg">
-            Write a Review
-          </button>
-          <p className="flex space-x-2">
+          <DetelsButton text="Write a Review" />
+
+          <div className="flex items-center space-x-2">
             <span className="font-extrabold">3785 sold by</span>
-            <span className="text-purple-500"> Esther Mensah </span>
-            {/* <span className="font-extrabold text-blue-700">Upfrica GH </span> */}
-            {/* <span className="font-bold text-purple-500">Shop</span> */}
-
-            <p className="flex  flex-row items-center">
-              <span>
-                <FaLocationPin className="mx-1 h-4 w-4 text-gray-400" />
-              </span>
-              <span className="text-purple-500 font-bold sm:ml-1">
-                accra, GH
-              </span>
-            </p>
-          </p>
-
-          <p className="text-base font-bold">
-            Price: <span className="text-xl">${price.cents}</span> each
-          </p>
-          <p className="text-gray-600 ">
-            RRP <span className="line-through">$166.17</span> You Save: $6.39
-            (3%)
-          </p>
-          <p className="text-red-600 font-bold">
-            <span className="px-1 bg-red-500 text-white">Sales</span> ends in 26
-            days 06:01
-          </p>
-          <p className="hidden lg:flex text-xl">
-            Collection: Click & Collect - Select option at checkout
-          </p>
-
-          <div className="px-2 py-1 text-xl bg-green-50 font-extrabold xl:w-3/5">
-            <p>
-              <span className="text-gray-400">Free Delivery for you</span>{" "}
-              <span>within Accra</span>
-            </p>
-          </div>
-          <div className="space-y-2">
-            <p className="text-base font-bold -tracking-wide border p-2 xl:w-3/5 rounded-md border-blue-400">
-              Delivery date:{" "}
-              <span className="text-blue-500"> 14 Sep - 17 Sep </span> if
-              ordered today
-            </p>
-            <p className="text-base xl:text-xl text-[#747589]">
-              Get a $4.79 credit for late delivery
-            </p>
-          </div>
-          {/* <Link to="/cartProdct"> */}
-          <button
-            onClick={handleAddToBasket}
-            className="bg-[#F7C32E] w-full p-2 rounded-3xl text-base font-bold"
-          >
-            Add to basket
-          </button>
-          {/* </Link> */}
-
-          {/* More text content as required */}
-
-          <div className=" space-y-4">
-            {/* Laptop Details Section */}
-            {laptopDetails.map((details, index) => (
-              <div key={index} className="space-y-3">
-                {Object.entries(details).map(([key, value]) => (
-                  <div key={key} className="flex">
-                    <div className="font-bold text-gray-700 w-2/3 md:1/3 text-right pr-2">
-                      {key}
-                    </div>
-                    <div className="text-gray-700">:</div>
-                    <div className="text-gray-900 w-2/3 pl-2">
-                      {Array.isArray(value)
-                        ? value.join(", ")
-                        : value.toString()}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-
-          <div className="space-y-2 text-base">
-            <h2 className="text-xl md:text-2xl font-bold">
-              Shop with confidence
-            </h2>
-            <button className="flex items-center gap-2 text-green-400">
-              <span>
-                <IoIosArrowDropdown className="h-7 w-7" />
-              </span>
-              <span>Shopping Security</span>
-              <span>
-                <MdOutlineKeyboardArrowRight className="h-7 w-7" />
-              </span>
-            </button>
-            <div className="w-2/3 grid lg:grid-cols-2 gap-4 text-base font-medium tracking-wide text-center">
-              <p className="flex gap-2">
-                <span>
-                  <IoMdCheckmark className="h-6 w-6 font-bold" />
-                </span>{" "}
-                <span>Safe payments</span>
-              </p>
-              <p className="flex gap-2">
-                <span>
-                  <IoMdCheckmark className="h-6 w-6 font-bold" />
-                </span>{" "}
-                <span>Delivery or Collaction</span>
-              </p>
-              <p className="flex gap-2">
-                <span>
-                  <IoMdCheckmark className="h-6 w-6 font-bold" />
-                </span>{" "}
-                <span>Good quailty products</span>
-              </p>
-              <p className="flex gap-2">
-                <span>
-                  <IoMdCheckmark className="h-6 w-6 font-bold" />
-                </span>{" "}
-                <span>Secure privace</span>
-              </p>
+            <span className="text-purple-500">Esther Mensah</span>
+            <div className="flex items-center">
+              <FaLocationPin className="mx-1 h-4 w-4 text-gray-400" />
+              <span className="text-purple-500 font-bold">Accra, GH</span>
             </div>
           </div>
+
+          <PriceSection price={price} />
+
+          <SalesEndSection
+            days={timeRemaining.days}
+            // hours={timeRemaining.hours}
+            minutes={timeRemaining.minutes}
+            seconds={timeRemaining.seconds}
+          />
+
+          <p>
+            <b>Collection:</b> Click & Collect - Select option at checkout
+          </p>
+
+          <FreeDeliveryInfo delivery={postage_fee.cents / 100} />
+
+          <DeliveryDate />
+          <p>Get a $1.41 credit for late delivery</p>
+
+          <AddToBasketButton onClick={handleAddToBasket} />
+
+          <LaptopDetails laptopDetails={laptopDetails} />
+
+          <ConfidenceSection />
         </div>
       </div>
 
       {/* Dell Latitude section  */}
       <div className="grid md:grid-cols-2 gap-5 lg:gap-20 ">
         <div>
-          <div className="md:h-[500px] space-y-2">
+          <div className="md:h-full space-y-2">
             <div className="space-y-4 border rounded-xl p-2">
               <div className="flex gap-5">
                 <span>
